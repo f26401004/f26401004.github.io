@@ -8,10 +8,13 @@ jobs:
     name: Build The Vue App
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout & Install Dependencies
-        uses: action/checkout@master
-        uses: action/setup-node@master
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@master
+      - name: Install Dependencies
         run: npm install
+      - name: Build The App
         run: npm run build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
@@ -24,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: action/checkout@master
+        uses: actions/checkout@master
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
