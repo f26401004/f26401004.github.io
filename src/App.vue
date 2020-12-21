@@ -1,8 +1,5 @@
 <template lang="pug">
-
-div
-  h1 Chun-Hao Huang
-
+router-view
 </template>
 
 <script>
@@ -23,5 +20,14 @@ body {
   background: linear-gradient(90deg, map-get($colors, primary) 0%, map-get($colors, primary) 40%, map-get($colors, bg) 40%, map-get($colors, bg) 56%);
   color: #2c3e50;
   margin-top: 60px;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 </style>
