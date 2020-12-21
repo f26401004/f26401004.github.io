@@ -1,5 +1,5 @@
 <template lang="pug">
-introduction
+introduction.ma-6
 </template>
 
 <script>

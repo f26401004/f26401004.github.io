@@ -1,5 +1,6 @@
 <template lang="pug">
-router-view
+v-app
+  router-view
 </template>
 
 <script>
@@ -17,17 +18,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: linear-gradient(90deg, map-get($colors, primary) 0%, map-get($colors, primary) 40%, map-get($colors, bg) 40%, map-get($colors, bg) 56%);
-  color: #2c3e50;
-  margin-top: 60px;
-  min-width: 100vw;
-  min-height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #app {
   display: flex;
   justify-content: center;
+  background: linear-gradient(90deg, #2176FF 0%, #2176FF 40%, #E5E5E5 40%, #E5E5E5 56%);
+  color: #2c3e50;
+  margin-top: 60px;
   min-width: 100vw;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 </style>
