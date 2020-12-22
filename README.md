@@ -28,11 +28,3 @@ TBA
     │   └── HelloWorld.vue
     └── main.js
 ```
-
-## Development Note
-
-#### 2020-12-15
-* Started with the default vue project
-* Set up GitHub Action that deploys the web app to Firebase Hosting
-
-

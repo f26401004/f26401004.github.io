@@ -1,6 +1,6 @@
 <template lang="pug">
 
-v-container
+div.pa-3.page-background-default
   v-scroll-y-reverse-transition(hide-on-leave)
     introduction.ma-3(v-show="isDisplay.introduction")
   v-scroll-y-reverse-transition(hide-on-leave)

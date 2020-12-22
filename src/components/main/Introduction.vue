@@ -133,7 +133,7 @@ export default {
 
 .custom-list-item {
   &-focus-area {
-      &::before {
+    &::before {
       content: "";
       display: inline-block;
       width: 7px;
@@ -142,7 +142,7 @@ export default {
     }
   }
   &-edu {
-      &::before {
+    &::before {
       content: "";
       display: inline-block;
       width: 7px;
