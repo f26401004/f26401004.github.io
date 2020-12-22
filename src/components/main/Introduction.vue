@@ -51,8 +51,6 @@ v-card.rounded-lg.mt-16.pb-5
                 p.ma-0.font-weight-medium.text-caption.text-left.primary--text Computer Science
           v-btn.mr-2(icon)
             v-icon(color="primary") mdi-arrow-right
-    v-tab-item(v-for="(tab, index) of tabs"
-      :key="`tab-item-${tab}-${index}`")
   v-row.pl-8.pr-8.mt-3
     v-btn(color="secondary"
       depressed
@@ -60,6 +58,7 @@ v-card.rounded-lg.mt-16.pb-5
       @click="downloadHandler")
       span Download CV
       v-icon(dark) mdi-download
+
 </template>
 
 <script>
