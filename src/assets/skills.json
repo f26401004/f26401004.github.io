@@ -1,14 +1,55 @@
 {
-  "Web Development": {
-    "preview": "",
-    "items": []
-  },
-  "Software Development":  {
-    "preview": "",
-    "items": []
-  },
-  "Machine Learning":  {
-    "preview": "",
-    "items": []
-  }
+  "Software Engineering": [{
+    "name": "Web Development",
+    "icon": "mdi-web",
+    "level": 9,
+    "labels": ["Single-page App", "Progressive Web App", "Module Bunlde", "Web Analytics", "API", "In-memory Data Store", "Message Queue", "DevOps", "SEO", "HTTP Cache", "Microservice"]
+  }, {
+    "name": "Software Development",
+    "icon": "mdi-application",
+    "level": 8,
+    "labels": ["Design Pattern", "Cross-platform App", "Desktop App", "Mobile App", "Static Code Analysis", "UML sequence Diagram", "Version-control System"]
+  }, {
+    "name": "Compiler",
+    "icon": "mdi-cogs",
+    "level": 6,
+    "labels": ["Lexical Definition", "Syntactic/Semantic Definition", "LALR(1) Parser Algorithm"]
+  }, {
+    "name": "Programming Languages",
+    "icon": "mdi-language-cpp",
+    "level": 6,
+    "labels": ["Closure", "Type System", "Lexical Scope", "Object-oriented Programming", "Functional Programming"]
+  }, {
+    "name": "Project Management",
+    "icon": "mdi-calendar",
+    "level": 9,
+    "labels": ["Agile Development", "Rapid Application Development", "Extreme Programming", "Project Estimation", "Requirement Engineering"]
+  }],
+  "Network Engineering": [{
+    "name": "Software-defined Network",
+    "icon": "mdi-console-network",
+    "level": 5,
+    "labels": ["Network Programming Language", "Network Management/Control App", "Virtual Network Emulator"]
+  }, {
+    "name": "Traffic Engineering",
+    "icon": "mdi-access-point",
+    "level": 6,
+    "labels": ["Packet Analysis", "Network Protocol", "Data Center Networking"]
+  }, {
+    "name": "Network Security",
+    "icon": "mdi-server-security",
+    "level": 6,
+    "labels": ["DDoS", "Port Scanning", "Main-in-the-middle Attack", "Phishing", "Reflection Attack", "Honeypot"]
+  }],
+  "Artificial Intelligence": [{
+    "name": "Feature Engineering",
+    "icon": "mdi-database-search",
+    "level": 9,
+    "labels": ["Encoding", "Feature Selection", "Feature Extraction", "Feature Generation"]
+  }, {
+    "name": "Machine Learning",
+    "icon": "mdi-poll-box",
+    "level": 8,
+    "labels": ["Classifier", "Reinforcement Learning", "Deep Learning", "Artificial Neural Network"]
+  }]
 }
