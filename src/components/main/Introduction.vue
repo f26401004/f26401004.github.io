@@ -20,25 +20,17 @@ v-card.rounded-lg.mt-16.pb-5
   v-tabs-items.pl-5.pr-5.mt-3.custom-items-tabs(v-model="currentTab")
     v-tab-item
       v-card(flat)
-        v-card-text.text-left.text-body-2 I am an experienced project leader specializing <b>software engineering</b>. Until now, I am trying to be an influencer with coding and problem-solving capability and apply my skills on real-world challenges
+        v-card-text.text-left.text-body-2 I am an experienced project leader specializing <b>software engineering</b>. Until now, I am trying to be an influencer with coding and problem-solving capabilities and apply my skills to real-world challenges.
     v-tab-item
       v-list
-        v-list-item.elevation-2.pa-0.custom-list-item-focus-area(dense
-          active-class="")
+        v-list-item.elevation-2.pa-0.custom-list-item-focus-area(v-for="(area, index) of focusAreas"
+          :key="`focus-areas-${area.name}-${index}`"
+          dense
+          :class="{ 'mt-2': index !== 0 }")
           v-list-item-content
-            v-list-item-title.pl-2.text-left.primary--text Software Engineering
+            v-list-item-title.pl-2.text-left.primary--text {{ area.name }}
           v-list-item-icon.pr-4
-            v-icon mdi-monitor-cellphone
-        v-list-item.elevation-2.pa-0.mt-2.custom-list-item-focus-area(dense)
-          v-list-item-content
-            v-list-item-title.pl-2.text-left.primary--text Cybersecurity
-          v-list-item-icon.pr-4
-            v-icon mdi-security
-        v-list-item.elevation-2.pa-0.mt-2.custom-list-item-focus-area(dense)
-          v-list-item-content
-            v-list-item-title.pl-2.text-left.primary--text Network Engineering
-          v-list-item-icon.pr-4
-            v-icon mdi-web
+            v-icon {{ area.icon }}
     v-tab-item
       v-list
         v-list-item.elevation-2.pa-0.d-flex.align-center.custom-list-item-edu(dense)
@@ -66,7 +58,17 @@ export default {
   name: 'introduction',
   data: function () {
     return {
-      expertiseTypes: ['Software', 'Network', 'Full-stack'],
+      expertiseTypes: ['Software', 'Network', 'AI'],
+      focusAreas: [{
+        name: 'Software Engineering',
+        icon: 'mdi-monitor-cellphone'
+      }, {
+        name: 'Artificial Intelligence',
+        icon: 'mdi-head-lightbulb'
+      }, {
+        name: 'Network Engineering',
+        icon: 'mdi-router-network'
+      }],
       currentTab: '',
       CVFile: require('@/assets/documents/CV_ver_2_5_compressed.pdf')
     }

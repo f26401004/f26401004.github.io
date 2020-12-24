@@ -23,7 +23,7 @@ div.pa-3.page-background-default
         link
         href="https://github.com/f26401004"
         target="_blank")
-        v-icon(color="primary") mdi-gitHub
+        v-icon(color="primary") mdi-github
   v-scroll-y-reverse-transition(hide-on-leave)
     skills.ma-3(v-show="isDisplay.skills")
 </template>

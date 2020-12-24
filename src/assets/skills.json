@@ -11,7 +11,7 @@
     "labels": ["Design Pattern", "Cross-platform App", "Desktop App", "Mobile App", "Static Code Analysis", "UML sequence Diagram", "Version-control System"]
   }, {
     "name": "Compiler",
-    "icon": "mdi-cogs",
+    "icon": "mdi-cog-transfer",
     "level": 6,
     "labels": ["Lexical Definition", "Syntactic/Semantic Definition", "LALR(1) Parser Algorithm"]
   }, {
@@ -21,7 +21,7 @@
     "labels": ["Closure", "Type System", "Lexical Scope", "Object-oriented Programming", "Functional Programming"]
   }, {
     "name": "Project Management",
-    "icon": "mdi-calendar",
+    "icon": "mdi-calendar-clock",
     "level": 9,
     "labels": ["Agile Development", "Rapid Application Development", "Extreme Programming", "Project Estimation", "Requirement Engineering"]
   }],
