@@ -87,7 +87,7 @@ export default {
     content: "";
     width: 100%;
     height: 100%;
-    background-color: map-get($colors, secondary);
+    background-color: #FDCA40;
     mix-blend-mode: hue;
   }
 }

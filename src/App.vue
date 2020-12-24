@@ -16,7 +16,7 @@ v-app
     dark
     color="#333333"
     height="100vh"
-    width="51vw"
+    width="50vw"
     overlay-opacity="0")
     v-list(flat
       rounded
@@ -84,5 +84,15 @@ body {
   transition: .2s background-color ease-in-out,
     .2s color ease-in-out;
 }
+
+
+.page-background-default {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: linear-gradient(90deg, #2176FF 0%, #2176FF 40%, #E5E5E5 40%, #E5E5E5 56%);
+}
+
 
 </style>

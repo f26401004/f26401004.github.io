@@ -26,9 +26,10 @@ v-card.rounded-lg.mt-16.pb-5
         v-list-item.elevation-2.pa-0.custom-list-item-focus-area(v-for="(area, index) of focusAreas"
           :key="`focus-areas-${area.name}-${index}`"
           dense
-          :class="{ 'mt-2': index !== 0 }")
+          :class="{ 'mt-2': index !== 0 }"
+          @click="")
           v-list-item-content
-            v-list-item-title.pl-2.text-left.primary--text {{ area.name }}
+            v-list-item-title.pl-4.text-left.primary--text {{ area.name }}
           v-list-item-icon.pr-4
             v-icon {{ area.icon }}
     v-tab-item
@@ -55,10 +56,10 @@ v-card.rounded-lg.mt-16.pb-5
 
 <script>
 export default {
-  name: 'introduction',
+  name: 'Introduction',
   data: function () {
     return {
-      expertiseTypes: ['Software', 'Network', 'AI'],
+      expertiseTypes: ['Software', 'AI', 'Network'],
       focusAreas: [{
         name: 'Software Engineering',
         icon: 'mdi-monitor-cellphone'
@@ -135,20 +136,26 @@ export default {
 
 .custom-list-item {
   &-focus-area {
-    &::before {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
       content: "";
-      display: inline-block;
+      display: block;
       width: 7px;
-      height: 40px;
+      height: 100%;
       background-color: #2176FF;
     }
   }
   &-edu {
-    &::before {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
       content: "";
-      display: inline-block;
+      display: block;
       width: 7px;
-      height: 52px;
+      height: 100%;
       background-color: #2176FF;
     }
   }

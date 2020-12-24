@@ -1,8 +1,0 @@
-$border-radius-list: 4 8 12 16 24 32;
-$border-radius: ();
-
-@each $i in $border-radius-list {
-  .border-radius-#{$i} {
-    border-radius: #{$i}px;
-  }
-};

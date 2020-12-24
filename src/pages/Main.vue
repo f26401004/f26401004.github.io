@@ -26,23 +26,28 @@ div.pa-3.page-background-default
         v-icon(color="primary") mdi-github
   v-scroll-y-reverse-transition(hide-on-leave)
     skills.ma-3(v-show="isDisplay.skills")
+  v-scroll-y-reverse-transition(hide-on-leave)
+    experiences.ma-3(v-show="isDisplay.experiences")
 </template>
 
 <script>
 import Introduction from '@/components/main/Introduction.vue'
 import Skills from '@/components/main/Skills.vue'
+import Experiences from '@/components/main/Experiences.vue'
 
 export default {
   name: 'Main',
   components: {
     Introduction,
-    Skills
+    Skills,
+    Experiences
   },
   data: function () {
     return {
       isDisplay: {
         introduction: false,
-        skills: false
+        skills: false,
+        experiences: false
       }
     }
   },
