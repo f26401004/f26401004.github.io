@@ -28,26 +28,31 @@ div.pa-3.page-background-default
     skills.ma-3(v-show="isDisplay.skills")
   v-scroll-y-reverse-transition(hide-on-leave)
     experiences.ma-3(v-show="isDisplay.experiences")
+  v-scroll-y-reverse-transition(hide-on-leave)
+    projects.ma-3(v-show="isDisplay.projects")
 </template>
 
 <script>
 import Introduction from '@/components/main/Introduction.vue'
 import Skills from '@/components/main/Skills.vue'
 import Experiences from '@/components/main/Experiences.vue'
+import Projects from '@/components/main/Projects.vue'
 
 export default {
   name: 'Main',
   components: {
     Introduction,
     Skills,
-    Experiences
+    Experiences,
+    Projects
   },
   data: function () {
     return {
       isDisplay: {
         introduction: false,
         skills: false,
-        experiences: false
+        experiences: false,
+        projects: false
       }
     }
   },
