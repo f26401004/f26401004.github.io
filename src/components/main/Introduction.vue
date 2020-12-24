@@ -34,27 +34,42 @@ v-card.rounded-lg.mt-16.pb-5
             v-icon {{ area.icon }}
     v-tab-item
       v-list
-        v-list-item.elevation-2.pa-0.d-flex.align-center.custom-list-item-edu(dense)
-          v-list-item-content.pa-0
+        v-list-item.elevation-2.pa-0.d-flex.align-center.custom-list-item-edu(dense
+          key="degree")
+          v-list-item-content.pa-1
             v-row(align="center")
               v-col.pt-0.pb-0.pr-0(cols="5")
                 label.font-weight-bold.text-body-2.primary--text BACHELOR
               v-col.pt-0.pb-0.pl-2(cols="7")
                 p.ma-0.font-weight-medium.text-caption.text-left NCKU
-                p.ma-0.font-weight-medium.text-caption.text-left.primary--text Computer Science
-          v-btn.mr-2(icon)
-            v-icon(color="primary") mdi-arrow-right
+                p.ma-0.text-caption.text-left.primary--text Computer Science
+          v-btn.mr-2(icon
+            @click="isDisplayTranscript = true")
+            v-icon(color="primary") mdi-chevron-right
+          transition(name="custom-expand-transition")
+            v-container.elevation-2.pa-0.d-flex.align-center.custom-list-item-transcript.primary(v-if="isDisplayTranscript")
+              v-btn.ml-2(icon
+                @click="isDisplayTranscript = false")
+                v-icon(color="white") mdi-chevron-left
+              v-list-item-content.pr-2
+                label.font-weight-bold.text-body-1.text-right.white--text(style="line-height: 100%;") GPA: 3.98/4.30
+                label.text-caption.text-right.white--text(style="line-height: 100%;") Credit: 151/151
+              v-btn.mr-2(icon)
+                v-icon(color="white"
+                  @click="downloadHandler('Bachelor_Transcript')") mdi-file
   v-row.pl-8.pr-8.mt-3
     v-btn(color="secondary"
       depressed
       style="width: 100%;"
-      @click="downloadHandler")
+      @click="downloadHandler('CV')")
       span Download CV
       v-icon(dark) mdi-download
 
 </template>
 
 <script>
+import b64toBlob from '@/plugins/b64toBlob.js'
+
 export default {
   name: 'Introduction',
   data: function () {
@@ -71,18 +86,25 @@ export default {
         icon: 'mdi-router-network'
       }],
       currentTab: '',
-      CVFile: require('@/assets/documents/CV_ver_2_5_compressed.pdf')
+      files: {
+        'CV': require('@/assets/documents/CV_ver_2_5_compressed.pdf'),
+        'Bachelor_Transcript': require('@/assets/documents/bachelor_transcript_compressed.pdf'),
+      },
+      isDisplayTranscript: false
     }
   },
   methods: {
-    downloadHandler: function () {
+    downloadHandler: function (filename) {
+      // Obtain the base64 string of the file
+      const file = this.files[filename].default.slice(28)
+      // Transfer the file from base64 to blob
+      const blob = b64toBlob(file, 'application/pdf')
       // Obtain the url from blob by createObjectURL
-      console.log(this.CVFile.default)
-      const url = window.URL.createObjectURL(this.CVFile.default)
+      const url = window.URL.createObjectURL(blob)
       // Use an a element and trigger click event
       const a = document.createElement('a')
       a.href = url
-      a.download = 'Chun_Hao_Huang_CV.pdf'
+      a.download = `Chun_Hao_Huang_${filename}.pdf`
       a.click()
       // Revoke the url we created
       window.URL.revokeObjectURL(url)
@@ -148,6 +170,7 @@ export default {
     }
   }
   &-edu {
+    overflow: hidden;
     &::after {
       position: absolute;
       top: 0;
@@ -165,4 +188,23 @@ export default {
   height: 152px;
   overflow-y: auto;
 }
+
+.custom-expand-transition {
+  &-enter, &-leave-to {
+    transform: translateX(-100%);
+  }
+  &-enter-active, &-leave-active {
+    position: absolute;
+  }
+}
+.custom-list-item-transcript {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s transform cubic-bezier(0.83, 0, 0.17, 1);
+  transform-origin: left;
+}
+
 </style>

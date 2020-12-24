@@ -63,7 +63,6 @@ export default {
   computed: {
     currentSkill: function () {
       const types = Object.keys(this.skillData)
-      console.log(this.skillData[types[this.currentSkillIndex]][0])
       return types[this.currentSkillIndex]
     }
   }
