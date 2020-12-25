@@ -20,9 +20,8 @@ v-card.rounded-lg.mt-10.pb-5
             v-chip(v-for="(tag, tidx) of project.tags"
               :key="`project-${project.name}-tag-${tag}-${tidx}`"
               color="#F6F6F6") {{ tag }}
-        v-card-content
-          v-container.pt-1.pb-2.pl-4.pr-4
-            p.text-left {{ project.description }}
+        v-container.pt-1.pb-2.pl-4.pr-4
+          p.text-left {{ project.description }}
 </template>
 
 <script>
