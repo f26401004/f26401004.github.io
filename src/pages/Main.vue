@@ -6,23 +6,31 @@ div.pa-3.page-background-default
       introduction.ma-3(v-show="isDisplay.introduction")
   v-scroll-y-reverse-transition(hide-on-leave)
     v-container
-      v-row.mr-1(justify="end")
+      v-row.mr-1(justify-xs="end"
+        justify-sm="center"
+        justify-md="center"
+        justify-lg="center"
+        justify-xl="center")
         v-btn.mr-2(icon
           link
+          :x-large="!isMobile"
           href="mailto:f26401004@gmail")
           v-icon(color="primary") mdi-email
         v-btn.mr-2(icon
           link
+          :x-large="!isMobile"
           href="https://www.facebook.com/profile.php?id=100007308796509"
           target="_blank")
           v-icon(color="primary") mdi-facebook
         v-btn.mr-2(icon
           link
+          :x-large="!isMobile"
           href="https://www.linkedin.com/in/f26401004/"
           target="_blank")
           v-icon(color="primary") mdi-linkedin
         v-btn.mr-2(icon
           link
+          :x-large="!isMobile"
           href="https://github.com/f26401004"
           target="_blank")
           v-icon(color="primary") mdi-github
