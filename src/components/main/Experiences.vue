@@ -2,9 +2,9 @@
 
   
 v-card.rounded-lg.mt-10.pb-5
-  v-row.ma-0.secondary
-    v-container
-      h3.text-h5.text-center.font-weight-black.white--text Experiences
+  v-container.secondary
+    v-row(justify="center")
+      h3.text-h5.font-weight-black.white--text Experiences
   v-container(v-for="(type, tidx) of Object.keys(displayExperienceData)"
     :key="`experience-type-${type}-${tidx}`")
     h4.text-h6.text-left.font-weight-black(:class="`${colors[type]}--text`") {{ type }}
@@ -14,7 +14,7 @@ v-card.rounded-lg.mt-10.pb-5
         :class="`custom-list-item-${type.toLowerCase()} ${idx !== 0 ? 'mt-2': ''}`"
         @click="")
         v-list-item-avatar.ml-4
-          div.custom-experience-icon(:style="{ 'background-image': `url(${require(`@/assets/images/icons/${item.icon}`)})` }")
+          div.custom-experience-icon(:style="{ 'background-image': `url('${require(`@/assets/images/icons/${item.icon}`)}')` }")
         v-list-item-content
           v-list-item-title.pr-4.mb-2.d-inline-flex.align-center
             h5.text-h6.text-left.font-weight-normal.text-wrap(style="line-height: 120%;"

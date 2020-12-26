@@ -2,36 +2,42 @@
 
 div.pa-3.page-background-default
   v-scroll-y-reverse-transition(hide-on-leave)
-    introduction.ma-3(v-show="isDisplay.introduction")
+    v-container
+      introduction.ma-3(v-show="isDisplay.introduction")
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-row.mr-1(justify="end")
-      v-btn.mr-2(icon
-        link
-        href="mailto:f26401004@gmail")
-        v-icon(color="primary") mdi-email
-      v-btn.mr-2(icon
-        link
-        href="https://www.facebook.com/profile.php?id=100007308796509"
-        target="_blank")
-        v-icon(color="primary") mdi-facebook
-      v-btn.mr-2(icon
-        link
-        href="https://www.linkedin.com/in/f26401004/"
-        target="_blank")
-        v-icon(color="primary") mdi-linkedin
-      v-btn.mr-2(icon
-        link
-        href="https://github.com/f26401004"
-        target="_blank")
-        v-icon(color="primary") mdi-github
+    v-container
+      v-row.mr-1(justify="end")
+        v-btn.mr-2(icon
+          link
+          href="mailto:f26401004@gmail")
+          v-icon(color="primary") mdi-email
+        v-btn.mr-2(icon
+          link
+          href="https://www.facebook.com/profile.php?id=100007308796509"
+          target="_blank")
+          v-icon(color="primary") mdi-facebook
+        v-btn.mr-2(icon
+          link
+          href="https://www.linkedin.com/in/f26401004/"
+          target="_blank")
+          v-icon(color="primary") mdi-linkedin
+        v-btn.mr-2(icon
+          link
+          href="https://github.com/f26401004"
+          target="_blank")
+          v-icon(color="primary") mdi-github
   v-scroll-y-reverse-transition(hide-on-leave)
-    skills.ma-3(v-show="isDisplay.skills")
+    v-container
+      skills.ma-3(v-show="isDisplay.skills")
   v-scroll-y-reverse-transition(hide-on-leave)
-    experiences.ma-3(v-show="isDisplay.experiences")
+    v-container
+      experiences.ma-3(v-show="isDisplay.experiences")
   v-scroll-y-reverse-transition(hide-on-leave)
-    projects.ma-3(v-show="isDisplay.projects")
+    v-container
+      projects.ma-3(v-show="isDisplay.projects")
   v-scroll-y-reverse-transition(hide-on-leave)
-    moocs.ma-3(v-show="isDisplay.moocs")
+    v-container
+      moocs.ma-3(v-show="isDisplay.moocs")
 </template>
 
 <script>

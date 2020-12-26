@@ -1,9 +1,9 @@
 <template lang="pug">
   
 v-card.rounded-lg.mt-10.pb-5
-  v-row.ma-0.secondary
-    v-container
-      h3.text-h5.text-center.font-weight-black.white--text MOOCs
+  v-container.secondary
+    v-row(justify="center")
+      h3.text-h5.font-weight-black.white--text MOOCs
   v-container
     v-list(two-line)
       v-list-item.elevation-2.pa-0.custom-list-item-moocs(v-for="(mooc, index) of displayMOOCs"
@@ -12,7 +12,7 @@ v-card.rounded-lg.mt-10.pb-5
         @click="")
         v-list-item-avatar.ml-5
           v-img(contain
-            :src="require(`@/assets/images/icons/${mooc.icon}`)")
+            :src="`${require(`@/assets/images/icons/${mooc.icon}`)}`")
         v-list-item-content.d-flex.align-center
           v-container.pa-0
             v-row(align="center" no-gutters)

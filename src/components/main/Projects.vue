@@ -1,9 +1,9 @@
 <template lang="pug">
   
 v-card.rounded-lg.mt-10.pb-5
-  v-row.ma-0.secondary
-    v-container
-      h3.text-h5.text-center.font-weight-black.white--text Projects
+  v-container.secondary
+    v-row(justify="center")
+      h3.text-h5.font-weight-black.white--text Projects
   carousel(paginationActiveColor="#2176FF"
     paginationColor="rgba(33, 118, 255, 0.3)"
     :per-page="1")

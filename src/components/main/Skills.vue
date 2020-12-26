@@ -1,23 +1,24 @@
 <template lang="pug">
   
 v-card.rounded-lg.mt-10.pb-5
-  v-row.ma-0.secondary
-    v-container
-      h3.text-h5.text-center.font-weight-black.white--text Personal Skills
-    v-carousel(v-model="currentSkillIndex"
-      continuous
-      hide-delimiter-background
-      delimiter-icon="mdi-circle-outline"
-      height="60vw")
-      v-carousel-item(v-for="(type, index) of Object.keys(skillData)"
-        :key="`carousel-skill-${type}-${index}`")
-        v-sheet(color="secondary"
-          flat
-          height="80%")
-          div.custom-skill-preview(:style="{ 'background-image': `url(${require(`@/assets/images/${type.replace(' ', '').toLowerCase()}.svg`)})` }")
-  v-row.ma-0.primary
-    v-container
-      h4.text-h6.text-center.font-weight-black.white--text {{ currentSkill }}
+  v-container.secondary
+    v-row(justify="center")
+      h3.text-h5.font-weight-black.white--text Personal Skills
+    v-row
+      v-carousel(v-model="currentSkillIndex"
+        continuous
+        hide-delimiter-background
+        delimiter-icon="mdi-circle-outline"
+        height="60vw")
+        v-carousel-item(v-for="(type, index) of Object.keys(skillData)"
+          :key="`carousel-skill-${type}-${index}`")
+          v-sheet.d-flex.align-center(color="secondary"
+            flat
+            height="80%")
+            div.custom-skill-preview(:style="{ 'background-image': `url('${require(`@/assets/images/${type.replace(' ', '').toLowerCase()}.svg`)}')` }")
+  v-container.primary
+    v-row(justify="center")
+      h3.text-h6.font-weight-black.white--text {{ currentSkill }}
   v-container
     v-tabs-items.pa-1.mt-3(v-model="currentSkillIndex")
       v-tab-item(v-for="(type, tidx) of Object.keys(skillData)"
@@ -73,7 +74,7 @@ export default {
 
 .custom-skill-preview {
   width: 100%;
-  height: 100%;
+  height: 90%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
