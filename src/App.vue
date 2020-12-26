@@ -91,8 +91,17 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  background: linear-gradient(90deg, #2176FF 0%, #2176FF 40%, #E5E5E5 40%, #E5E5E5 56%);
+  background: linear-gradient(90deg, #2176FF 0%, #2176FF 40%, #E5E5E5 40%, #E5E5E5 100%);
 }
 
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 1280px !important;
+  }
+  .page-background-default {
+    background: linear-gradient(90deg, #2176FF 0%, #2176FF 33%, #E5E5E5 33%, #E5E5E5 100%) !important;
+  }
+}
 
 </style>
