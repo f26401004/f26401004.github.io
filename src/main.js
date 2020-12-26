@@ -11,7 +11,6 @@ import '@mdi/font/css/materialdesignicons.css'
 Vue.mixin({
   computed: {
     isMobile: function () {
-      console.log(this.$vuetify)
       const desktop = this.$vuetify.breakpoint.md || this.$vuetify.breakpoint.lg || this.$vuetify.breakpoint.xl
       return !desktop
     }

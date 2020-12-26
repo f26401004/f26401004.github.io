@@ -2,14 +2,17 @@
 
 v-card.mt-16(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
   v-row.fill-height
-    v-col.pt-0.pb-0(xs="12" sm="5" lg="5" md="5")
+    v-col.pt-0.pb-0(cols="12"
+      md="5"
+      lg="5"
+      xl="5")
       v-container.fill-height.secondary(:class="{ 'rounded-t-lg': isMobile, 'rounded-l-xl': !isMobile }")
         v-row.custom-section-figure
           v-img.custom-figure(:src="require('@/assets/figure.png')")
-    v-col(xs="12"
-      sm="7"
-      lg="7"
+    v-col(cols="12"
       md="7"
+      lg="7"
+      xl="7"
       :class="{ 'pa-8': !isMobile }")
       v-container.pl-9.pr-9
         v-row(justify="start")

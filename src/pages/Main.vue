@@ -6,8 +6,7 @@ div.pa-3.page-background-default
       introduction.ma-3(v-show="isDisplay.introduction")
   v-scroll-y-reverse-transition(hide-on-leave)
     v-container
-      v-row.mr-1(justify-xs="end"
-        justify-sm="center"
+      v-row.mr-1(justify="end"
         justify-md="center"
         justify-lg="center"
         justify-xl="center")
