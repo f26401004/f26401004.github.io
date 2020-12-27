@@ -11,9 +11,9 @@ v-card.rounded-lg.mt-10.pb-5
   carousel(paginationActiveColor="#2176FF"
     paginationColor="rgba(33, 118, 255, 0.3)"
     :per-page="isMobile ? 1 : 3"
-    :class="{ 'pl-8': !isMobile, 'pr-8': !isMobile }"
-    paginationSize="18"
-    paginationPadding="12")
+    :paginationPadding="12"
+    :paginationSize="18"
+    :class="{ 'pl-8': !isMobile, 'pr-8': !isMobile }")
     slide.d-flex.justify-center(v-for="(project, index) of displayProjects"
       :key="`project-${project.name}-${index}`"
       :class="{ 'pt-4': isMobile, 'pb-1': isMobile, 'pt-12': !isMobile, 'pb-8': !isMobile }")
