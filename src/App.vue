@@ -1,50 +1,48 @@
 <template lang="pug">
 v-app
-  v-app-bar(color="transparent"
-    flat
+  v-app-bar(
     absolute
-    style="transition: .2s transform ease-in-out;"
-    :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer }")
-    v-container.d-flex.mt-8
+    style="transition: .2s all ease-in-out; z-index: 9999;"
+    scroll-target="scrolling-target"
+    :elevation="isScroll ? 2 : 0"
+    :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer }"
+    :color="isScroll ? 'primary': 'transparent'")
+    v-container.d-flex
       div.d-flex.align-center
-        v-img.mr-4(:max-width="isMobile ? '20%' : '32px'" contain :src="require('@/assets/logo.svg')")
+        v-img.mr-4(:max-width="isMobile ? '15%' : '32px'" contain :src="require('@/assets/logo.svg')")
         label.font-weight-black.text-left.text-uppercase.white--text(style="line-height: 100%;"
-          :style="{ 'width': isMobile ? '70%' : '200px' }"
-          :class="{ 'text-h6': isMobile, 'text-body-1': !isMobile }") Jack Huang
+          :style="{ 'width': isMobile ? '60%' : '200px' }"
+          :class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile }") Jack Huang
       v-spacer
       v-container.d-flex.justify-end(v-if="!isMobile")
         v-btn.ma-2(text
           tile
           large
-          color="primary"
-          :class="{ 'custom-button-active': currentRouteIndex === 0 }")
+          :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 0 }") Home
         v-btn.ma-2(text
           tile
           large
-          color="primary"
-          :class="{ 'custom-button-active': currentRouteIndex === 1 }")
+          :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 1 }") Experiences
         v-btn.ma-2(text
           tile
           large
-          color="primary"
-          :class="{ 'custom-button-active': currentRouteIndex === 2 }")
+          :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 2 }") Projects
         v-btn.ma-2(text
           tile
           large
-          color="primary"
-          :class="{ 'custom-button-active': currentRouteIndex === 3 }")
+          :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 3 }") MOOCs
         v-btn.ma-2(text
           tile
           large
-          color="primary"
-          :class="{ 'custom-button-active': currentRouteIndex === 4 }")
+          :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 4 }") Contact
       v-app-bar-nav-icon(v-else
-        @click="isDisplayDrawer = true").dark--text
+        :class="{ 'dark--text': !isScroll, 'white--text': isScroll }"
+        @click="isDisplayDrawer = true")
   v-navigation-drawer(v-if="isMobile"
     v-model="isDisplayDrawer"
     right
@@ -74,9 +72,12 @@ v-app
         v-list-item-content.font-weight-medium.text-center
           span Contact
   v-main
-    router-view(
-      style="transition: .2s transform ease-in-out;"
-      :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
+    perfect-scrollbar(id="scrolling-target"
+      style="max-height: 100vh;"
+      @ps-scroll-y="scrollYEvent")
+      router-view(
+        style="transition: .2s transform ease-in-out;"
+        :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
 </template>
 
 <script>
@@ -86,7 +87,8 @@ export default {
   },
   data: function () {
     return {
-      isDisplayDrawer: false
+      isDisplayDrawer: false,
+      diffHeight: 0
     }
   },
   computed: {
@@ -105,6 +107,14 @@ export default {
         default:
           return 0
       }
+    },
+    isScroll: function () {
+      return this.diffHeight > 0
+    }
+  },
+  methods: {
+    scrollYEvent: function (event) {
+      this.diffHeight = event.target.scrollTop
     }
   }
 }
@@ -112,12 +122,18 @@ export default {
 
 <style lang="scss">
 
+html {
+  overflow: hidden;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 #app {
@@ -126,6 +142,8 @@ body {
   color: #2c3e50;
   margin-top: 60px;
   max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
   margin: 0;
   padding: 0;
 }
@@ -168,23 +186,23 @@ body {
   }
 }
 
-.custom-button-active {
-  &::after {
-    transition: .2s all ease-in-out;
-    position: absolute;
-    top: calc(100% - 6px);
-    left: 30%;
-    content: "";
-    width: 40%;
-    height: 6px;
-    background: #2176FF;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-  }
-}
+// .custom-button-active {
+//   &::after {
+//     transition: .2s all ease-in-out;
+//     position: absolute;
+//     top: calc(100% - 6px);
+//     left: 30%;
+//     content: "";
+//     width: 40%;
+//     height: 6px;
+//     background: #2176FF;
+//     border-top-left-radius: 6px;
+//     border-top-right-radius: 6px;
+//   }
+// }
 
 .ps__rail-x,
 .ps__rail-y {
-  z-index: 9999;
+  z-index: 9998;
 }
 </style>
