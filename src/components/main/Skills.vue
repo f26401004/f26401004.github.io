@@ -8,8 +8,12 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
       lg="5"
       xl="5")
       v-container.secondary(:class="{ 'rounded-t-lg': isMobile, 'rounded-tl-xl': !isMobile  }")
-        v-row(justify="center")
-          h3.text-h5.font-weight-black.white--text Personal Skills
+        v-row.pl-8.pr-8(justify="center"
+          justify-md="start"
+          justify-lg="start"
+          justify-xl="start"
+          :class="{ 'pa-2': !isMobile }")
+          h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") Personal Skills
       v-container.pa-0(style="overflow: hidden;"
         :class="{ 'rounded-bl-xl': !isMobile, 'secondary': isMobile }")
         v-carousel(v-model="currentSkillIndex"
@@ -29,8 +33,12 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
       lg="7"
       xl="7")
       v-container.primary(:class="{ 'rounded-tr-xl': !isMobile }")
-        v-row(justify="center")
-          h3.text-sm-h6.text-md-h5.text-lg-h5.text-xl-h5.font-weight-black.white--text {{ currentSkill }}
+        v-row.pl-8.pr-8(justify="center"
+          justify-md="start"
+          justify-lg="start"
+          justify-xl="start"
+          :class="{ 'pa-2': !isMobile }")
+          h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") {{ currentSkill }}
       v-container(style="overflow-y: auto;"
         :style="{ 'height': isMobile ? 'auto' : '530px' }")
         v-tabs-items.pa-1.mt-3(v-model="currentSkillIndex")
@@ -60,6 +68,7 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
                     v-chip.ma-1(v-for="(label, lidx) of skill.labels"
                       :key="`${currentSkill}-${label}-${lidx}`"
                       outlined
+                      ripple
                       :small="isMobile"
                       color="primary") {{ label }} 
 </template>
@@ -105,6 +114,13 @@ export default {
   //   mix-blend-mode: hue;
   // }
 }
+
+@media only screen and (min-width: 601px) {
+  /deep/ .custom-carousel .v-carousel__controls__item {
+    padding-bottom: 80px !important;
+  }
+}
+
 
 
 /deep/ .custom-carousel .v-carousel__controls__item.v-btn {

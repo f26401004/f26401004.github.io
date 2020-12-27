@@ -104,4 +104,11 @@ body {
   }
 }
 
+
+.VueCarousel-dot-container {
+  margin-top: 0 !important;
+  & > button {
+    margin-top: 12px !important;
+  }
+}
 </style>
