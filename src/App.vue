@@ -3,13 +3,50 @@ v-app
   v-app-bar(color="transparent"
     flat
     absolute
-    collapse-on-scroll
-    scroll-target=".page-background-default"
     style="transition: .2s transform ease-in-out;"
-    :class="{ 'custom-transition-drawer': isDisplayDrawer }")
-    v-spacer
-    v-app-bar-nav-icon(@click="isDisplayDrawer = true").dark--text
-  v-navigation-drawer(v-model="isDisplayDrawer"
+    :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer }")
+    v-container.d-flex.mt-8
+      div.d-flex.align-center
+        v-img.mr-4(:max-width="isMobile ? '20%' : '32px'" contain :src="require('@/assets/logo.svg')")
+        label.font-weight-black.text-left.text-uppercase.white--text(style="line-height: 100%;"
+          :style="{ 'width': isMobile ? '70%' : '200px' }"
+          :class="{ 'text-h6': isMobile, 'text-body-1': !isMobile }") Jack Huang
+      v-spacer
+      v-container.d-flex.justify-end(v-if="!isMobile")
+        v-btn.ma-2(text
+          tile
+          large
+          color="primary"
+          :class="{ 'custom-button-active': currentRouteIndex === 0 }")
+          span(:class="{ 'black--text': currentRouteIndex !== 0 }") Home
+        v-btn.ma-2(text
+          tile
+          large
+          color="primary"
+          :class="{ 'custom-button-active': currentRouteIndex === 1 }")
+          span(:class="{ 'black--text': currentRouteIndex !== 1 }") Experiences
+        v-btn.ma-2(text
+          tile
+          large
+          color="primary"
+          :class="{ 'custom-button-active': currentRouteIndex === 2 }")
+          span(:class="{ 'black--text': currentRouteIndex !== 2 }") Projects
+        v-btn.ma-2(text
+          tile
+          large
+          color="primary"
+          :class="{ 'custom-button-active': currentRouteIndex === 3 }")
+          span(:class="{ 'black--text': currentRouteIndex !== 3 }") MOOCs
+        v-btn.ma-2(text
+          tile
+          large
+          color="primary"
+          :class="{ 'custom-button-active': currentRouteIndex === 4 }")
+          span(:class="{ 'black--text': currentRouteIndex !== 4 }") Contact
+      v-app-bar-nav-icon(v-else
+        @click="isDisplayDrawer = true").dark--text
+  v-navigation-drawer(v-if="isMobile"
+    v-model="isDisplayDrawer"
     right
     app
     temporary
@@ -36,9 +73,10 @@ v-app
       v-list-item(active-class="custom-list-item-active-menu" to="/contact")
         v-list-item-content.font-weight-medium.text-center
           span Contact
-  router-view(
-    style="transition: .2s transform ease-in-out;"
-    :class="{ 'custom-transition-drawer': isDisplayDrawer }")
+  v-main
+    router-view(
+      style="transition: .2s transform ease-in-out;"
+      :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
 </template>
 
 <script>
@@ -49,6 +87,24 @@ export default {
   data: function () {
     return {
       isDisplayDrawer: false
+    }
+  },
+  computed: {
+    currentRouteIndex: function () {
+      switch(this.$route.path) {
+        case '/':
+          return 0
+        case '/experiences':
+          return 1
+        case '/projects':
+          return 2
+        case '/moocs':
+          return 3
+        case '/contact':
+          return 4
+        default:
+          return 0
+      }
     }
   }
 }
@@ -91,7 +147,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  background: linear-gradient(90deg, #2176FF 0%, #2176FF 40%, #E5E5E5 40%, #E5E5E5 100%);
+  background: linear-gradient(90deg, #2176FF 0%, #2176FF 45%, #E5E5E5 45%, #E5E5E5 100%);
 }
 
 
@@ -100,7 +156,7 @@ body {
     max-width: 1280px !important;
   }
   .page-background-default {
-    background: linear-gradient(90deg, #2176FF 0%, #2176FF 33%, #E5E5E5 33%, #E5E5E5 100%) !important;
+    background: linear-gradient(90deg, #2176FF 0%, #2176FF 33%, rgba(102, 102, 102, 0.06) 33%, rgba(102, 102, 102, 0.06) 100%) !important;
   }
 }
 
@@ -109,6 +165,21 @@ body {
   margin-top: 0 !important;
   & > button {
     margin-top: 12px !important;
+  }
+}
+
+.custom-button-active {
+  &::after {
+    transition: .2s all ease-in-out;
+    position: absolute;
+    top: calc(100% - 6px);
+    left: 30%;
+    content: "";
+    width: 40%;
+    height: 6px;
+    background: #2176FF;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
 }
 </style>

@@ -2,7 +2,7 @@
 
 div.pa-3.page-background-default
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-container
+    v-container.mt-16
       introduction.ma-3(v-show="isDisplay.introduction")
   v-scroll-y-reverse-transition(hide-on-leave)
     v-container

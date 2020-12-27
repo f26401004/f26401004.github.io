@@ -1,6 +1,6 @@
 <template lang="pug">
 
-v-card.mt-16(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
+v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMobile }")
   v-row.fill-height
     v-col.pt-0.pb-0(cols="12"
       md="5"
