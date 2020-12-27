@@ -3,7 +3,6 @@ v-app
   v-app-bar(
     absolute
     style="transition: .2s all ease-in-out; z-index: 9999;"
-    scroll-target="scrolling-target"
     :elevation="isScroll ? 2 : 0"
     :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer }"
     :color="isScroll ? 'primary': 'transparent'")
@@ -18,26 +17,36 @@ v-app
         v-btn.ma-2(text
           tile
           large
+          link
+          to="/"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 0 }") Home
         v-btn.ma-2(text
           tile
           large
+          link
+          to="/experiences"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 1 }") Experiences
         v-btn.ma-2(text
           tile
           large
+          link
+          to="/projects"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 2 }") Projects
         v-btn.ma-2(text
           tile
           large
+          link
+          to="/moocs"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 3 }") MOOCs
         v-btn.ma-2(text
           tile
           large
+          link
+          to="/contact"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 4 }") Contact
       v-app-bar-nav-icon(v-else
@@ -72,12 +81,12 @@ v-app
         v-list-item-content.font-weight-medium.text-center
           span Contact
   v-main
-    perfect-scrollbar(id="scrolling-target"
-      style="max-height: 100vh;"
+    perfect-scrollbar(style="max-height: 100vh;"
       @ps-scroll-y="scrollYEvent")
-      router-view(
-        style="transition: .2s transform ease-in-out;"
-        :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
+      vue-page-transition(name="overlay-down-full")
+        router-view(
+          style="transition: .2s transform ease-in-out;"
+          :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
 </template>
 
 <script>
@@ -123,9 +132,8 @@ export default {
 <style lang="scss">
 
 html {
-  overflow: hidden;
+  overflow-y: hidden !important;
 }
-
 body {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -205,4 +213,19 @@ body {
 .ps__rail-y {
   z-index: 9998;
 }
+
+.overlay-top, .overlay-bottom, .overlay-left, .overlay-right {
+  background: url("./assets//logo.svg"), var(--overlay-bg) !important;
+  background-position: 50% 50% !important;
+  background-size: 18vh, cover !important;
+  background-repeat: no-repeat !important;
+  z-index: 10000;
+}
+.overlay-top {
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
+}
+.overlay-bottom {
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
+}
+
 </style>

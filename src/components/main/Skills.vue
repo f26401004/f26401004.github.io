@@ -41,8 +41,7 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
           h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") {{ currentSkill }}
       v-container
         perfect-scrollbar(style="overflow-y: auto;"
-          :style="{ 'height': isMobile ? 'auto' : '530px' }"
-          :options="{ wheelSpeed: 0.6 }")
+          :style="{ 'height': isMobile ? 'auto' : '530px' }")
           v-tabs-items.pa-1.mt-3(v-model="currentSkillIndex")
             v-tab-item(v-for="(type, tidx) of Object.keys(skillData)"
               :key="`skill-tab-${type}-${tidx}`")
