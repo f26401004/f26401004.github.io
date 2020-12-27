@@ -8,6 +8,11 @@ v-card.rounded-lg.mt-10.pb-5
       justify-xl="start"
       :class="{ 'pa-2': !isMobile }")
       h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") Projects
+      v-spacer(v-if="!isMobile")
+      v-btn(v-if="!isMobile"
+        text
+        large
+        color="white") More
   carousel(paginationActiveColor="#2176FF"
     paginationColor="rgba(33, 118, 255, 0.3)"
     :per-page="isMobile ? 1 : 3"

@@ -182,4 +182,9 @@ body {
     border-top-right-radius: 6px;
   }
 }
+
+.ps__rail-x,
+.ps__rail-y {
+  z-index: 9999;
+}
 </style>

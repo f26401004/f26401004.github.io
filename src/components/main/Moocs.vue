@@ -8,6 +8,11 @@ v-card.rounded-lg.mt-10.pb-5
       justify-xl="start"
       :class="{ 'pa-2': !isMobile }")
       h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") MOOCs
+      v-spacer(v-if="!isMobile")
+      v-btn(v-if="!isMobile"
+        text
+        large
+        color="white") More
   v-container(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pt-10': !isMobile, 'pb-10': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile }")
     v-list(:two-line="isMobile" :three-line="!isMobile")
       v-list-item.elevation-2.pa-0.custom-list-item-moocs(v-for="(mooc, index) of displayMOOCs"

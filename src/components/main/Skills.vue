@@ -39,38 +39,40 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
           justify-xl="start"
           :class="{ 'pa-2': !isMobile }")
           h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") {{ currentSkill }}
-      v-container(style="overflow-y: auto;"
-        :style="{ 'height': isMobile ? 'auto' : '530px' }")
-        v-tabs-items.pa-1.mt-3(v-model="currentSkillIndex")
-          v-tab-item(v-for="(type, tidx) of Object.keys(skillData)"
-            :key="`skill-tab-${type}-${tidx}`")
-            v-expansion-panels(:multiple="!isMobile")
-              v-expansion-panel(v-for="(skill, sidx) of skillData[currentSkill]"
-                :key="`${currentSkill}-${skill.name}-${sidx}`")
-                v-expansion-panel-header.pt-3.pb-3.pl-4.pr-4(style="background-color: rgba(102, 102, 102, 0.06);")
-                  v-row.pa-0.ma-0(justify="center"
-                    align="center")
-                    v-col.pa-0.ma-0(cols="2" md="1" lg="1" xl="1")
-                      v-icon(color="primary"
-                        :dense="isMobile"
-                        :large="!isMobile") {{ skill.icon }}
-                    v-col.pa-0.ma-0(cols="10" md="11" lg="11" xl="11")
-                      p.mb-0.font-weight-bold.primary--black(:class="{ 'text-h6': !isMobile }") {{ skill.name }}
-                      v-rating(readonly
-                        v-model="skill.level"
-                        dense
-                        length="10"
-                        :size="isMobile ? '14px' : '20px'"
-                        background-color="grey darken-1"
-                        color="secondary")
-                v-expansion-panel-content.pt-4
-                  v-row(justify="start")
-                    v-chip.ma-1(v-for="(label, lidx) of skill.labels"
-                      :key="`${currentSkill}-${label}-${lidx}`"
-                      outlined
-                      ripple
-                      :small="isMobile"
-                      color="primary") {{ label }} 
+      v-container
+        perfect-scrollbar(style="overflow-y: auto;"
+          :style="{ 'height': isMobile ? 'auto' : '530px' }"
+          :options="{ wheelSpeed: 0.6 }")
+          v-tabs-items.pa-1.mt-3(v-model="currentSkillIndex")
+            v-tab-item(v-for="(type, tidx) of Object.keys(skillData)"
+              :key="`skill-tab-${type}-${tidx}`")
+              v-expansion-panels(:multiple="!isMobile")
+                v-expansion-panel(v-for="(skill, sidx) of skillData[currentSkill]"
+                  :key="`${currentSkill}-${skill.name}-${sidx}`")
+                  v-expansion-panel-header.pt-3.pb-3.pl-4.pr-4(style="background-color: rgba(102, 102, 102, 0.06);")
+                    v-row.pa-0.ma-0(justify="center"
+                      align="center")
+                      v-col.pa-0.ma-0(cols="2" md="1" lg="1" xl="1")
+                        v-icon(color="primary"
+                          :dense="isMobile"
+                          :large="!isMobile") {{ skill.icon }}
+                      v-col.pa-0.ma-0(cols="10" md="11" lg="11" xl="11")
+                        p.mb-0.font-weight-bold.primary--black(:class="{ 'text-h6': !isMobile }") {{ skill.name }}
+                        v-rating(readonly
+                          v-model="skill.level"
+                          dense
+                          length="10"
+                          :size="isMobile ? '14px' : '20px'"
+                          background-color="grey darken-1"
+                          color="secondary")
+                  v-expansion-panel-content.pt-4
+                    v-row(justify="start")
+                      v-chip.ma-1(v-for="(label, lidx) of skill.labels"
+                        :key="`${currentSkill}-${label}-${lidx}`"
+                        outlined
+                        ripple
+                        :small="isMobile"
+                        color="primary") {{ label }} 
 </template>
 
 <script>
@@ -81,7 +83,7 @@ export default {
   data: function () {
     return {
       skillData,
-      currentSkillIndex: 0,
+      currentSkillIndex: 0
     }
   },
   computed: {

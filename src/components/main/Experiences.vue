@@ -9,6 +9,11 @@ v-card.rounded-lg.mt-10.pb-5
       justify-xl="start"
       :class="{ 'pa-2': !isMobile }")
       h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") Experiences
+      v-spacer(v-if="!isMobile")
+      v-btn(v-if="!isMobile"
+        text
+        large
+        color="white") More
   v-container(v-for="(type, tidx) of Object.keys(displayExperienceData)"
     :key="`experience-type-${type}-${tidx}`"
     :class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile }")
