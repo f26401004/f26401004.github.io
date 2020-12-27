@@ -1,0 +1,136 @@
+{
+  "Job": [{
+    "title": "Co-founder/Full-stack Engineer",
+    "organization": "CityChaser Co.",
+    "period": ["11/01/2019", ""],
+    "icon": "CityChaser.png",
+    "tags": [],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Network Research Assistant",
+    "organization": "National Chiao Tung University",
+    "period": ["09/01/2020", ""],
+    "icon": "NCTU.png", 
+    "tags": [],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Software Engineering Research Assistant",
+    "organization": "National Cheng Kung University",
+    "period": ["11/01/2018", "06/01/2020"],
+    "icon": "NCKU.png",
+    "tags": [],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Web Development Internship",
+    "organization": "FarEasTone Telecom",
+    "period": ["07/01/2019", "09/01/2019"],
+    "icon": "FarEasTone.png",
+    "tags": [],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Teaching Assistant",
+    "organization": "National Cheng Kung University",
+    "period": ["02/01/2019", "07/01/2019"],
+    "icon": "NCKU.png",
+    "tags": [],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }],
+  "Activity": [{
+    "title": "Trainee",
+    "organization": "Advanced Information Security Summer School 2020",
+    "period": ["07/27/2020", "08/02/2020"],
+    "icon": "MOE.png",
+    "tags": ["Learning"],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Trainee",
+    "organization": "Qiskit Global Summer School 2020",
+    "period": ["07/20/2020", "08/07/2020"],
+    "icon": "IBM.png",
+    "tags": ["Learning"],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Volunteer",
+    "organization": "GDG Devfest Taipei 2019",
+    "period": ["11/01/2019", "12/01/2019"],
+    "icon": "GDGTaipei.png",
+    "tags": ["Volunteer"],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Chief of IT Department",
+    "organization": "NCKU Bike Festival 2019",
+    "period": ["11/01/2018", "03/01/2019"],
+    "icon": "NCKU.png",
+    "tags": ["Leadership"],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "IT Specialist",
+    "organization": "NCKU Student Union 2018",
+    "period": ["07/01/2017", "07/01/2018"],
+    "icon": "NCKUSU.png",
+    "tags": ["Volunteer"],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }, {
+    "title": "Leader of Education Team",
+    "organization": "NCKU CSIE Summer Camp 2018",
+    "period": ["02/01/2018", "08/01/2018"],
+    "icon": "NCKUCSIESummerCamp.png",
+    "tags": ["Learning"],
+    "content": {
+      "description": "",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  }]
+}
