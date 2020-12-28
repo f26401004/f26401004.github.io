@@ -4,7 +4,6 @@ import vuetify from '@/plugins/vuetify'
 import router from '@/router.js'
 import PerfectScrollbar from 'vue2-perfect-scrollbar'
 import VuePageTransition from 'vue-page-transition'
-import VueSilentbox from 'vue-silentbox'
 
 import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 import 'normalize.css'
@@ -13,7 +12,6 @@ import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(PerfectScrollbar)
 Vue.use(VuePageTransition)
-Vue.use(VueSilentbox)
 // Globally register the computed variable to obtain the layout status
 Vue.mixin({
   computed: {
