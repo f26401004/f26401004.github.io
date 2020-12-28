@@ -2,48 +2,49 @@
 v-app
   v-app-bar(
     absolute
-    style="transition: .2s all ease-in-out; z-index: 9999;"
+    style="transition: .2s all ease-in-out; z-index: 1000;"
     :elevation="isScroll ? 2 : 0"
     :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer }"
     :color="isScroll ? 'primary': 'transparent'")
     v-container.d-flex
-      div.d-flex.align-center
-        v-img.mr-4(:max-width="isMobile ? '15%' : '32px'" contain :src="require('@/assets/logo.svg')")
+      div.d-flex.align-center(style="z-index: 1010;")
+        v-img.mr-4(:max-width="isMobile ? '15%' : '32px'" contain
+          :src="require('@/assets/logo.svg')")
         label.font-weight-black.text-left.text-uppercase.white--text(style="line-height: 100%;"
           :style="{ 'width': isMobile ? '60%' : '200px' }"
           :class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile }") Jack Huang
       v-spacer
       v-container.d-flex.justify-end(v-if="!isMobile")
         v-btn.ma-2(text
-          tile
+          rounded
           large
           link
           to="/"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 0 }") Home
         v-btn.ma-2(text
-          tile
+          rounded
           large
           link
           to="/experiences"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 1 }") Experiences
         v-btn.ma-2(text
-          tile
+          rounded
           large
           link
           to="/projects"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 2 }") Projects
         v-btn.ma-2(text
-          tile
+          rounded
           large
           link
           to="/moocs"
           :color="isScroll ? 'white' : 'primary'")
           span(:class="{ 'black--text': currentRouteIndex !== 3 }") MOOCs
         v-btn.ma-2(text
-          tile
+          rounded
           large
           link
           to="/contact"
@@ -83,7 +84,7 @@ v-app
   v-main
     perfect-scrollbar(style="max-height: 100vh;"
       @ps-scroll-y="scrollYEvent")
-      vue-page-transition(name="overlay-down-full")
+      vue-page-transition(name="overlay-left-full")
         router-view(
           style="transition: .2s transform ease-in-out;"
           :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
@@ -215,17 +216,18 @@ body {
 }
 
 .overlay-top, .overlay-bottom, .overlay-left, .overlay-right {
-  background: url("./assets//logo.svg"), var(--overlay-bg) !important;
+  background: url("./assets//logo.svg"), #2176FF !important;
   background-position: 50% 50% !important;
   background-size: 18vh, cover !important;
   background-repeat: no-repeat !important;
-  z-index: 10000;
+  z-index: 999;
 }
-.overlay-top {
+.overlay-top,
+.overlay-left,
+.overlay-bottom,
+.overlay-right {
   transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
 }
-.overlay-bottom {
-  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
-}
+
 
 </style>

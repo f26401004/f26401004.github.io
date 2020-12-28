@@ -31,31 +31,26 @@ v-card.rounded-lg.mt-10.pb-5
             v-row(no-gutters
               align="center")
               v-col(cols="12"
-                md="5"
-                ld="5"
-                xl="5")
+                md="9"
+                ld="9"
+                xl="9")
                 v-container.pa-0.d-inline-flex.align-center
                   h5.text-left.font-weight-medium.text-wrap(style="line-height: 120%;"
-                    :class="transferToTitleStyle(type)") {{ item.title }}
-                  v-spacer(v-if="isMobile")
-                  v-chip.ml-4(v-if="item.tags.length"
-                    :small="isMobile"
-                    ripple).grey--text {{ item.tags[0] }}
-              v-col(cols="12"
-                md="4"
-                ld="4"
-                xl="4")
-                label.text-left.text-wrap(v-if="!isMobile") {{ item.organization }}
-              v-col(cols="12"
+                    :class="isMobile ? `text-h6 ${colors[type]}--text` : `text-h5 ${colors[type]}--text`") {{ item.title }}
+                br
+                v-container.pa-0.d-inline-flex.align-center
+                  label.text-left.text-wrap {{ item.organization }}
+              v-col(v-if="!isMobile"
+                cols="12"
                 md="3"
                 ld="3"
                 xl="3")
-                v-container.d-flex.justify-end(v-if="!isMobile")
-                  time.text-caption(:class="`${colors[type]}--text`") {{ item.period | transferToLength}}
-                  time.text-caption ・{{ item.period | transferToRange }}
+                v-container.d-flex.justify-end
+                  time.text-body-1(:class="`${colors[type]}--text`") {{ item.period | transferToLength}}
+                  time.text-body-1 ・{{ item.period | transferToRange }}
           v-list-item-subtitle(v-if="isMobile")
             p.mb-1.text-left {{ item.organization }}
-          div.d-flex(v-if="isMobile")
+          v-container.d-flex(v-if="isMobile")
             time.text-caption(:class="`${colors[type]}--text`") {{ item.period | transferToLength}}
             time.text-caption ・{{ item.period | transferToRange }}
 

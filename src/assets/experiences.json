@@ -4,19 +4,19 @@
     "organization": "CityChaser Co.",
     "period": ["11/01/2019", ""],
     "icon": "CityChaser.png",
-    "tags": [],
+    "tag": "Entrepreneurship",
     "content": {
-      "description": "",
-      "contributions": [],
-      "awards/honors": [],
-      "images": []
+      "description": "test",
+      "contributions": ["contribution 1", "contribution 2"],
+      "awards/honors": ["award 1", "award 2", "award 3"],
+      "images": ["Kyronus_1.png", "Kyronus_2.png", "Kyronus_3.png", "Kyronus_4.png"]
     }
   }, {
     "title": "Network Research Assistant",
     "organization": "National Chiao Tung University",
     "period": ["09/01/2020", ""],
     "icon": "NCTU.png", 
-    "tags": [],
+    "tag": "Network Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -28,7 +28,7 @@
     "organization": "National Cheng Kung University",
     "period": ["11/01/2018", "06/01/2020"],
     "icon": "NCKU.png",
-    "tags": [],
+    "tag": "Software Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -40,7 +40,7 @@
     "organization": "FarEasTone Telecom",
     "period": ["07/01/2019", "09/01/2019"],
     "icon": "FarEasTone.png",
-    "tags": [],
+    "tag": "Software Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -52,7 +52,7 @@
     "organization": "National Cheng Kung University",
     "period": ["02/01/2019", "07/01/2019"],
     "icon": "NCKU.png",
-    "tags": [],
+    "tag": "Software Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -65,7 +65,7 @@
     "organization": "Advanced Information Security Summer School 2020",
     "period": ["07/27/2020", "08/02/2020"],
     "icon": "MOE.png",
-    "tags": ["Learning"],
+    "tag": "Learning",
     "content": {
       "description": "",
       "contributions": [],
@@ -77,7 +77,7 @@
     "organization": "Qiskit Global Summer School 2020",
     "period": ["07/20/2020", "08/07/2020"],
     "icon": "IBM.png",
-    "tags": ["Learning"],
+    "tag": "Learning",
     "content": {
       "description": "",
       "contributions": [],
@@ -89,7 +89,7 @@
     "organization": "GDG Devfest Taipei 2019",
     "period": ["11/01/2019", "12/01/2019"],
     "icon": "GDGTaipei.png",
-    "tags": ["Volunteer"],
+    "tag": "Volunteer",
     "content": {
       "description": "",
       "contributions": [],
@@ -101,7 +101,7 @@
     "organization": "NCKU Bike Festival 2019",
     "period": ["11/01/2018", "03/01/2019"],
     "icon": "NCKU.png",
-    "tags": ["Leadership"],
+    "tag": "Leadership",
     "content": {
       "description": "",
       "contributions": [],
@@ -113,7 +113,7 @@
     "organization": "NCKU Student Union 2018",
     "period": ["07/01/2017", "07/01/2018"],
     "icon": "NCKUSU.png",
-    "tags": ["Volunteer"],
+    "tag": "Volunteer",
     "content": {
       "description": "",
       "contributions": [],
@@ -125,7 +125,7 @@
     "organization": "NCKU CSIE Summer Camp 2018",
     "period": ["02/01/2018", "08/01/2018"],
     "icon": "NCKUCSIESummerCamp.png",
-    "tags": ["Learning"],
+    "tag": "Leadership",
     "content": {
       "description": "",
       "contributions": [],

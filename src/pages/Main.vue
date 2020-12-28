@@ -2,10 +2,10 @@
 
 div.pa-3.page-background-default
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-container.mt-16
+    v-container.mt-16.pl-0.pr-0
       introduction.ma-3(v-show="isDisplay.introduction")
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-container
+    v-container.pl-0.pr-0
       v-row.mr-1(justify="end"
         justify-md="center"
         justify-lg="center"
@@ -34,16 +34,16 @@ div.pa-3.page-background-default
           target="_blank")
           v-icon(color="primary") mdi-github
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-container
+    v-container.pl-0.pr-0
       skills.ma-3(v-show="isDisplay.skills")
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-container
+    v-container.pl-0.pr-0
       experiences.ma-3(v-show="isDisplay.experiences")
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-container
+    v-container.pl-0.pr-0
       projects.ma-3(v-show="isDisplay.projects")
   v-scroll-y-reverse-transition(hide-on-leave)
-    v-container
+    v-container.pl-0.pr-0
       moocs.ma-3(v-show="isDisplay.moocs")
 </template>
 
