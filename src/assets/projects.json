@@ -1,6 +1,7 @@
 [{
-  "name": "Mobile/Multi-access Edge Computing Middlebox",
+  "name": "MEC Middlebox",
   "tags": ["Kubernetes"],
+  "type": "Network Engineering",
   "status": "",
   "course": "test",
   "score": "",
@@ -10,6 +11,7 @@
 }, {
   "name": "Kyronus",
   "tags": ["test"],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -19,6 +21,7 @@
 }, {
   "name": "Online Judge and Game Integrated System",
   "tags": [],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -28,6 +31,7 @@
 }, {
   "name": "NCKU Bike Festival 2019 Official Website",
   "tags": [],
+  "type": "Software Engineering",
   "course": "",
   "status": "",
   "score": "",
@@ -37,6 +41,7 @@
 }, {
   "name": "μC Compiler",
   "tags": [],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -46,6 +51,7 @@
 }, {
   "name": "RR Load Balancer",
   "tags": [],
+  "type": "Network Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -55,15 +61,7 @@
 }, {
   "name": "HackMDir",
   "tags": [],
-  "status": "",
-  "course": "",
-  "score": "",
-  "description": "",
-  "link": "",
-  "images": []
-}, {
-  "name": "The Strategist",
-  "tags": [],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -73,6 +71,17 @@
 }, {
   "name": "Remote iPhone Exploitation with iMessage",
   "tags": [],
+  "type": "Cybersecurity",
+  "status": "",
+  "course": "",
+  "score": "",
+  "description": "",
+  "link": "",
+  "images": []
+}, {
+  "name": "Fake alert with arbitrary content in public warning level using USRP b210",
+  "tags": [],
+  "type": "Cybersecurity",
   "status": "",
   "course": "",
   "score": "",
@@ -82,6 +91,7 @@
 }, {
   "name": "Spec Organizer",
   "tags": [],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -91,33 +101,7 @@
 }, {
   "name": "GitHub Pull-request Recommendation System",
   "tags": [],
-  "status": "",
-  "course": "",
-  "score": "",
-  "description": "",
-  "link": "",
-  "images": []
-}, {
-  "name": "Lightweight Interpreter with Metalanguage",
-  "tags": [],
-  "status": "",
-  "course": "",
-  "score": "",
-  "description": "",
-  "link": "",
-  "images": []
-}, {
-  "name": "Screen Locker",
-  "tags": [],
-  "status": "",
-  "course": "",
-  "score": "",
-  "description": "",
-  "link": "",
-  "images": []
-}, {
-  "name": "Cordova Plugin Mapbox",
-  "tags": [],
+  "type": "Artificial Intelligence",
   "status": "",
   "course": "",
   "score": "",
@@ -127,6 +111,7 @@
 }, {
   "name": "Enterprise KPI Dashboard",
   "tags": [],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -136,6 +121,7 @@
 }, {
   "name": "Fraud Call Detection",
   "tags": [],
+  "type": "Artificial Intelligence",
   "status": "",
   "course": "",
   "score": "",
@@ -145,6 +131,7 @@
 }, {
   "name": "ATG.io -- A network I/O game with Q-learning",
   "tags": [],
+  "type": "Artificial Intelligence",
   "status": "",
   "course": "",
   "score": "",
@@ -154,6 +141,7 @@
 }, {
   "name": "Smash the Noodles",
   "tags": [],
+  "type": "Other",
   "status": "",
   "course": "",
   "score": "",
@@ -163,6 +151,7 @@
 }, {
   "name": "Cube Campaign",
   "tags": [],
+  "type": "Other",
   "status": "",
   "course": "",
   "score": "",
@@ -172,6 +161,7 @@
 }, {
   "name": "Passerby",
   "tags": [],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -181,6 +171,7 @@
 }, {
   "name": "Virtual Payment System",
   "tags": [],
+  "type": "Software Engineering",
   "status": "",
   "course": "",
   "score": "",
@@ -190,6 +181,7 @@
 }, {
   "name": "Barter - Facebook Chatbot",
   "tags": [],
+  "type": "Other",
   "status": "",
   "course": "",
   "score": "",
