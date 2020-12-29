@@ -32,7 +32,6 @@ export default {
     Object.keys(this.isDisplay).forEach(key => {
       this.isDisplay[key] = true
     })
-    console.log(this.isDisplay)
   }
 }
 </script>
