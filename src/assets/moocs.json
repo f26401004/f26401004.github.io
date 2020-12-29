@@ -5,7 +5,7 @@
   "score": "96.5",
   "organization": "University of Washington",
   "field": "Software Engineering",
-  "file": ""
+  "file": "Coursera_GoogleIT.pdf"
 }, {
   "name": "Model Thinking",
   "icon": "UMich.svg",
@@ -13,7 +13,7 @@
   "score": "99.1",
   "organization": "University of Michigan",
   "field": "Software Engineering",
-  "file": ""
+  "file": "Coursera_GoogleIT.pdf"
 }, {
   "name": "Machine Learning",
   "icon": "Stanford.svg",
@@ -21,23 +21,23 @@
   "score": "97.4",
   "organization": "Stanford University",
   "field": "Artificial Intelligence",
-  "file": ""
+  "file": "Coursera_GoogleIT.pdf"
 }, {
-  "name": "Build a Modern Computer from First Principles",
+  "name": "Build a Modern Computer from First Principles: Nand to Tetris",
   "icon": "HUJI.svg",
   "completeTime": "",
   "score": "94.3",
   "organization": "Hebrew University of Jerusalem",
   "field": "Software Engineering",
-  "file": ""
+  "file": "Coursera_GoogleIT.pdf"
 }, {
   "name": "Software Defined Network",
   "icon": "UChicago.svg",
   "completeTime": "",
   "score": "92.3",
   "organization": "University of Chicago",
-  "field": "Networking",
-  "file": ""
+  "field": "Network Engineering",
+  "file": "Coursera_GoogleIT.pdf"
 }, {
   "name": "Google IT Specialist Certificate Program",
   "icon": "Google.svg",
@@ -45,5 +45,5 @@
   "score": "99.6",
   "organization": "Google",
   "field": "Software Engineering",
-  "file": ""
+  "file": "Coursera_GoogleIT.pdf"
 }]

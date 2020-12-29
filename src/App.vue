@@ -229,5 +229,8 @@ body {
   transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
 }
 
+.v-alert .v-alert__wrapper {
+  display: block !important;
+}
 
 </style>
