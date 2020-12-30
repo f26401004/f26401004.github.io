@@ -2,7 +2,7 @@
 
 div.pa-3.page-background-default
   v-container.mt-16
-    v-card.mt-4.rounded-lg(two-line
+    v-card.mt-6.rounded-lg(two-line
       style="overflow: hidden")
       v-card-text.pa-0
         v-container.pa-0
@@ -55,7 +55,7 @@ div.pa-3.page-background-default
                               v-avatar.text-h6.white--text(color="#8fb7f6") {{ mooc.score | truncateFloat }}
                     v-container.ma-0.pa-4.d-flex.flex-wrap.justify-center.align-center.rounded-lg(v-else
                       style="height: 200px;"
-                      :class="`${currentMOOCIndex === midx && currentMOOCField === mooc.field ? fieldColor(field) : ''} lighten-2`")
+                      :class="`${currentMOOCIndex === midx && currentMOOCField === mooc.field ? fieldColor(field) : ''}`")
                       v-img(contain
                         max-height="48px"
                         :src="`${require(`@/assets/images/icons/${mooc.icon}`)}`")
