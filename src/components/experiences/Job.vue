@@ -8,77 +8,81 @@ v-card.rounded-lg.mt-10.pb-5
       justify-xl="start"
       :class="{ 'pa-2': !isMobile }")
       h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") Job
-  v-container.d-flex.justify-start(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pt-14': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile }")
-    v-tabs(v-model="currentJobTab"
-      show-arrows
-      hide-slider
-      color="primary")
-      v-tab(v-for="(type, index) of types"
-        :key="`job-type-tab-${type}`"
-        color="primary") {{ type }}
-  v-tabs-items(v-model="currentJobTab"
-    :class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pb-8': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile }")
-    v-tab-item(v-for="(type, index) of types"
-      :key="`job-type-tab-item-${type}`")
-      v-expansion-panels(:multiple="!isMobile")
-        v-expansion-panel.elevation-2.pa-0(v-for="(item, idx) of displayJobs(type)"
-          :key="`job-item-${item.name}-${idx}`"
-          :class="{ 'mt-2': idx !== 0}")
-          v-expansion-panel-header.pa-2.pr-4.custom-list-item-job(ripple)
-            template(v-slot:actions)
-              v-icon(color="primary"
-                :large="!isMobile") $expand 
-            v-list.pa-0.custom-list-item-job(:three-line="isMobile")
-              v-list-item.pa-0
-                v-list-item-avatar(:class="{ 'ml-4': isMobile, 'ml-8': !isMobile }")
-                  v-img(contain
-                    :src="require(`@/assets/images/icons/${item.icon}`)")
-                v-list-item-content
-                  v-list-item-title.pr-4.d-flex.align-center(:class="{ 'mb-2': isMobile }")
-                    v-row(no-gutters
-                      align="center")
-                      v-col(cols="12"
-                        md="9"
-                        ld="9"
-                        xl="9")
-                        v-container.pa-0.d-inline-flex.align-center
-                          h5.text-left.font-weight-medium.text-wrap(style="line-height: 120%;"
-                            :class="isMobile ? `text-h6 primary--text` : `text-h5 primary--text`") {{ item.title }}
-                        br(v-if="!isMobile")
-                        v-container.pa-0.d-inline-flex.align-center(v-if="!isMobile")
-                          label.text-left.text-wrap {{ item.organization }}
-                      v-col(v-if="!isMobile"
-                        cols="12"
-                        md="3"
-                        ld="3"
-                        xl="3")
-                        v-container.d-flex.justify-end
-                          time.text-body-1.primary--text {{ item.period | transferToLength}}
-                          time.text-body-1 ・{{ item.period | transferToRange }}
-                  v-list-item-subtitle(v-if="isMobile")
-                    p.mb-1.text-left {{ item.organization }}
-                  div.d-flex(v-if="isMobile")
-                    time.text-caption(class="primary--text") {{ item.period | transferToLength}}
-                    time.text-caption ・{{ item.period | transferToRange }}
-          v-expansion-panel-content(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile }")
-            v-container.pl-0.pr-0
-              p.ma-0.text-left(v-html="item.content.description"
-                :class="{ 'mb-2': !isMobile }")
-            v-container.pa-0
-              v-alert.text-left(v-for="(contribution, idx) of item.content.contributions"
-                :key="`experience-${contribution}-${idx}`"
-                dark
-                color="primary"
-                icon="mdi-thumb-up") <b>Contribution</b>: {{ contribution }}
-              v-alert.text-left(v-for="(award, idx) of item.content['awards/honors']"
-                :key="`experience-${award}-${idx}`"
-                dark
-                color="secondary"
-                icon="mdi-trophy") <b>Honor</b>: {{ award }}
-            v-container.pa-0(v-if="item.content.images.length > 0")
-              gallery(:title="item.title"
-                :images="transferToFilepath(item.content.images)")
-                
+  v-container
+    v-expansion-panels(v-if="isMobile")
+      v-expansion-panel.elevation-2.pa-0(v-for="(item, idx) of displayJobs('All')"
+        :key="`job-item-${item.name}-${idx}`"
+        :class="{ 'mt-2': idx !== 0}")
+        v-expansion-panel-header.pa-2.pr-4.custom-list-item-job(ripple)
+          template(v-slot:actions)
+            v-icon(color="primary") $expand 
+          v-list.pa-0.custom-list-item-job(three-line)
+            v-list-item.pa-0
+              v-list-item-avatar.ml-4
+                v-img(contain
+                  :src="require(`@/assets/images/icons/${item.icon}`)")
+              v-list-item-content
+                v-list-item-title.mb-2.pr-4.d-flex.align-center
+                  v-container.pa-0.d-inline-flex.align-center
+                    h5.text-left.text-h6.font-weight-medium.text-wrap.primary--text(style="line-height: 120%;") {{ item.title }}
+                v-list-item-subtitle
+                  p.mb-1.text-left {{ item.organization }}
+                div.d-flex
+                  time.text-caption(class="primary--text") {{ item.period | transferToLength}}
+                  time.text-caption ・{{ item.period | transferToRange }}
+        v-expansion-panel-content
+          v-container.pl-0.pr-0
+            p.ma-0.text-left(v-html="item.content.description")
+          v-container.pa-0
+            v-alert.text-left(v-for="(contribution, idx) of item.content.contributions"
+              :key="`experience-${contribution}-${idx}`"
+              dark
+              color="primary"
+              icon="mdi-thumb-up") <b>Contribution</b>: {{ contribution }}
+            v-alert.text-left(v-for="(award, idx) of item.content['awards/honors']"
+              :key="`experience-${award}-${idx}`"
+              dark
+              color="secondary"
+              icon="mdi-trophy") <b>Honor</b>: {{ award }}
+          v-container.pa-0(v-if="item.content.images.length > 0")
+            gallery(:title="item.title"
+              :images="transferToFilepath(item.content.images)")
+    v-container(v-else)
+      v-row
+        v-col(cols="3")
+          v-tabs(v-model="currentJob"
+            vertical
+            style="max-width: 100%;")
+            v-tab.d-flex(v-for="(item, idx) of displayJobs('All')"
+              :key="`job-item-${item.name}-${idx}`"
+              style="height: 64px; width: 100%; word-break: break-word; white-space: normal;")
+              v-row(no-gutters)
+                v-col(cols="3")
+                  v-avatar(size="36")
+                    v-img(contain
+                      :src="require(`@/assets/images/icons/${item.icon}`)")
+                v-col.d-flex.justify-left.align-center(cols="9")
+                  label.text-left.text-capitalize  {{ item.title }}
+        v-col(cols="9")
+          v-tabs-items(v-model="currentJob")
+            v-tab-item(v-for="(item, idx) of displayJobs('All')"
+              :key="`job-tab-item-${item.name}-${idx}`")
+              v-container.pl-0.pr-0
+                p.ma-0.text-left(v-html="item.content.description")
+              v-container.pa-0
+                v-alert.d-flex.text-left(v-for="(contribution, cidx) of item.content.contributions"
+                  :key="`experience-${contribution}-${cidx}`"
+                  dark
+                  color="primary"
+                  icon="mdi-thumb-up") <b>Contribution</b>: {{ contribution }}
+                v-alert.text-left(v-for="(award, aidx) of item.content['awards/honors']"
+                  :key="`experience-${award}-${aidx}`"
+                  dark
+                  color="secondary"
+                  icon="mdi-trophy") <b>Honor</b>: {{ award }}
+              v-container.pa-0(v-if="item.content.images.length > 0")
+                gallery(:title="item.title"
+                  :images="transferToFilepath(item.content.images)")
 </template>
 
 <script>
@@ -93,6 +97,7 @@ export default {
   data: function () {
     return {
       currentJobTab: 'All',
+      currentJob: {},
       experienceData
     }
   },
@@ -140,6 +145,18 @@ export default {
       }
       const result = []
       this.experienceData['Job'].forEach(target => {
+        if (target.tag === type) {
+          result.push(target)
+        }
+      })
+      return result
+    },
+    displayActivities: function (type) {
+      if (type === 'All') {
+        return this.experienceData['Activity']
+      }
+      const result = []
+      this.experienceData['Activity'].forEach(target => {
         if (target.tag === type) {
           result.push(target)
         }

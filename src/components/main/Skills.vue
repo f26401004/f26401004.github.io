@@ -42,10 +42,17 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
       v-container
         perfect-scrollbar(style="overflow-y: auto;"
           :style="{ 'height': isMobile ? 'auto' : '530px' }")
-          v-tabs-items.pa-1.mt-3(v-model="currentSkillIndex")
+          v-tabs-items.pa-1(v-model="currentSkillIndex")
             v-tab-item(v-for="(type, tidx) of Object.keys(skillData)"
               :key="`skill-tab-${type}-${tidx}`")
-              v-expansion-panels(:multiple="!isMobile")
+              v-container.d-flex.justify-end()
+                v-fade-transition(hide-on-leave)
+                  v-btn(text
+                    color="primary"
+                    :key="isExpanded ? 'collapse' : 'expand'"
+                    @click="isExpanded ? collapseAllSkillByType() : expandAllSkillsByType(type)") {{ isExpanded ? 'Collapse All' : 'Expand All' }}
+              v-expansion-panels(v-model="currentPanels"
+                :multiple="!isMobile")
                 v-expansion-panel(v-for="(skill, sidx) of skillData[currentSkill]"
                   :key="`${currentSkill}-${skill.name}-${sidx}`")
                   v-expansion-panel-header.pt-3.pb-3.pl-4.pr-4(style="background-color: rgba(102, 102, 102, 0.06);")
@@ -82,13 +89,38 @@ export default {
   data: function () {
     return {
       skillData,
-      currentSkillIndex: 0
+      currentSkillIndex: 0,
+      currentPanels: [],
+      isMounted: false
     }
   },
   computed: {
     currentSkill: function () {
       const types = Object.keys(this.skillData)
       return types[this.currentSkillIndex]
+    },
+    isExpanded: function () {
+      if (!this.isMounted) {
+        return false
+      }
+      return this.currentPanels.length === this.skillData[this.currentSkill].length
+    }
+  },
+  mounted: function () {
+    // // Initializing the currentPanels
+    // const types = Object.keys(this.skillData)
+    // types.forEach(type => {
+    //   this.currentPanels[type] = []
+    // })
+    this.isMounted = true
+  },
+  methods: {
+    expandAllSkillsByType: function (type) {
+      console.log(Array(this.skillData[type]))
+      this.currentPanels = [...this.skillData[type].map((target, index) => index)]
+    },
+    collapseAllSkillByType: function () {
+      this.currentPanels = []
     }
   }
 }

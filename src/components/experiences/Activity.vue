@@ -46,7 +46,7 @@ v-card.rounded-lg.mt-10.pb-5
                             :class="isMobile ? `text-h6 error--text` : `text-h5 error--text`") {{ item.title }}
                         br(v-if="!isMobile")
                         v-container.pa-0.d-inline-flex.align-center(v-if="!isMobile")
-                          label.text-left.text-wrap {{ item.organization }}
+                          label.text-left.text-wrap.grey--text {{ item.organization }}
                       v-col(v-if="!isMobile"
                         cols="12"
                         md="3"

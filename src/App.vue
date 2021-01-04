@@ -220,7 +220,7 @@ body {
   background-position: 50% 50% !important;
   background-size: 18vh, cover !important;
   background-repeat: no-repeat !important;
-  z-index: 999;
+  z-index: 9999;
 }
 .overlay-top,
 .overlay-left,
@@ -229,8 +229,9 @@ body {
   transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
 }
 
-.v-alert .v-alert__wrapper {
-  display: block !important;
+
+.v-item-group .v-slide-group__content {
+  width: 100% !important;
 }
 
 </style>

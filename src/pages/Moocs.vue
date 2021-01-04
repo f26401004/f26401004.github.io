@@ -57,6 +57,7 @@ div.pa-3.page-background-default
                       style="height: 200px;"
                       :class="`${currentMOOCIndex === midx && currentMOOCField === mooc.field ? fieldColor(field) : ''}`")
                       v-img(contain
+                        max-width="48px"
                         max-height="48px"
                         :src="`${require(`@/assets/images/icons/${mooc.icon}`)}`")
                       v-container
