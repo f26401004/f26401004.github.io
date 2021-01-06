@@ -67,9 +67,16 @@ v-card.rounded-lg.mt-10.pb-5
           v-tabs-items(v-model="currentJob")
             v-tab-item(v-for="(item, idx) of displayJobs('All')"
               :key="`job-tab-item-${item.name}-${idx}`")
-              v-container.pl-0.pr-0
+              v-card.pl-0.pr-0.text-left(outlined)
+                v-card-text
+                  v-chip.text-h6.mb-2(:color="transferToColor(item.tag)") {{ item.tag }}
+                  h3.font-weight-bold.text-h4.text-left.primary--text.mb-2 {{ item.title }}
+                  div.d-flex.align-center
+                    time.text-body-1(class="primary--text") {{ item.period | transferToLength}}
+                    time.text-body-1 ・{{ item.period | transferToRange }}
+              v-container
                 p.ma-0.text-left(v-html="item.content.description")
-              v-container.pa-0
+              v-container
                 v-alert.d-flex.text-left(v-for="(contribution, cidx) of item.content.contributions"
                   :key="`experience-${contribution}-${cidx}`"
                   dark
@@ -80,7 +87,7 @@ v-card.rounded-lg.mt-10.pb-5
                   dark
                   color="secondary"
                   icon="mdi-trophy") <b>Honor</b>: {{ award }}
-              v-container.pa-0(v-if="item.content.images.length > 0")
+              v-container(v-if="item.content.images.length > 0")
                 gallery(:title="item.title"
                   :images="transferToFilepath(item.content.images)")
 </template>
@@ -96,8 +103,7 @@ export default {
   },
   data: function () {
     return {
-      currentJobTab: 'All',
-      currentJob: {},
+      currentJob: 0,
       experienceData
     }
   },
@@ -162,6 +168,22 @@ export default {
         }
       })
       return result
+    },
+    transferToColor: function (value) {
+      switch(value) {
+        case 'Software Engineering':
+          return 'primary' // this.$vuetify.theme.currentTheme.primary
+        case 'Network Engineering':
+          return 'secondary' // this.$vuetify.theme.currentTheme.secondary
+        case 'Artificial Intelligence':
+          return 'error' // this.$vuetify.theme.currentTheme.error
+        case 'Cybersecurity':
+          return 'light-green' // this.$vuetify.theme.currentTheme.error
+        case 'Other':
+          return 'purple'
+        default:
+          return 'primary' // this.$vuetify.theme.currentTheme.primary
+      }
     }
   }
 }
