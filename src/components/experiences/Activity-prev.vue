@@ -1,28 +1,40 @@
 <template lang="pug">
 
-div
-  v-card.rounded-lg.mt-10.pb-5(v-if="isMobile")
-    v-container.secondary
-      v-row.pl-8.pr-8(justify="center"
-        justify-md="start"
-        justify-lg="start"
-        justify-xl="start")
-        h3.font-weight-black.white--text.text-h5 Activity
-    v-container
-      v-expansion-panels
-        v-expansion-panel.elevation-2.pa-0(v-for="(item, idx) of displayActivities('All')"
+v-card.rounded-lg.mt-10.pb-5
+  v-container.secondary
+    v-row.pl-8.pr-8(justify="center"
+      justify-md="start"
+      justify-lg="start"
+      justify-xl="start"
+      :class="{ 'pa-2': !isMobile }")
+      h3.font-weight-black.white--text(:class="{ 'text-h5': isMobile, 'text-h4': !isMobile }") Activity
+  v-container.d-flex.justify-start(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pt-14': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile }")
+    v-tabs(v-model="currentActivityTab"
+      show-arrows
+      hide-slider
+      color="error")
+      v-tab(v-for="(type, index) of types"
+        :key="`activity-type-tab-${type}`"
+        color="error") {{ type }}
+  v-tabs-items(v-model="currentActivityTab"
+    :class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pb-8': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile }")
+    v-tab-item(v-for="(type, index) of types"
+      :key="`activity-type-tab-item-${type}`")
+      v-expansion-panels(:multiple="!isMobile")
+        v-expansion-panel.elevation-2.pa-0(v-for="(item, idx) of displayActivities(type)"
           :key="`activity-item-${item.name}-${idx}`"
           :class="{ 'mt-2': idx !== 0}")
           v-expansion-panel-header.pa-2.pr-4.custom-list-item-activity(ripple)
             template(v-slot:actions)
-              v-icon(color="error") $expand 
-            v-list.pa-0.custom-list-item-activity(three-line)
+              v-icon(color="error"
+                :large="!isMobile") $expand 
+            v-list.pa-0.custom-list-item-activity(:three-line="isMobile")
               v-list-item.pa-0
-                v-list-item-avatar.ml-4
+                v-list-item-avatar(:class="{ 'ml-4': isMobile, 'ml-8': !isMobile }")
                   v-img(contain
                     :src="require(`@/assets/images/icons/${item.icon}`)")
                 v-list-item-content
-                  v-list-item-title.pr-4.mb-2.d-flex.align-center
+                  v-list-item-title.pr-4.d-flex.align-center(:class="{ 'mb-2': isMobile }")
                     v-row(no-gutters
                       align="center")
                       v-col(cols="12"
@@ -30,15 +42,28 @@ div
                         ld="9"
                         xl="9")
                         v-container.pa-0.d-inline-flex.align-center
-                          h5.text-left.font-weight-medium.text-wrap.text-h6.error--text(style="line-height: 120%;") {{ item.title }}
-                  v-list-item-subtitle
+                          h5.text-left.font-weight-medium.text-wrap(style="line-height: 120%;"
+                            :class="isMobile ? `text-h6 error--text` : `text-h5 error--text`") {{ item.title }}
+                        br(v-if="!isMobile")
+                        v-container.pa-0.d-inline-flex.align-center(v-if="!isMobile")
+                          label.text-left.text-wrap.grey--text {{ item.organization }}
+                      v-col(v-if="!isMobile"
+                        cols="12"
+                        md="3"
+                        ld="3"
+                        xl="3")
+                        v-container.d-flex.justify-end
+                          time.text-body-1.error--text {{ item.period | transferToLength}}
+                          time.text-body-1 ・{{ item.period | transferToRange }}
+                  v-list-item-subtitle(v-if="isMobile")
                     p.mb-1.text-left {{ item.organization }}
-                  div.d-flex
+                  div.d-flex(v-if="isMobile")
                     time.text-caption(class="error--text") {{ item.period | transferToLength}}
                     time.text-caption ・{{ item.period | transferToRange }}
-          v-expansion-panel-content
+          v-expansion-panel-content(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile }")
             v-container.pl-0.pr-0
-              p.ma-0.text-left(v-html="item.content.description")
+              p.ma-0.text-left(v-html="item.content.description"
+                :class="{ 'mb-2': !isMobile }")
             v-container.pa-0
               v-alert.text-left(v-for="(contribution, idx) of item.content.contributions"
                 :key="`experience-${contribution}-${idx}`"
@@ -53,40 +78,17 @@ div
             v-container.pa-0(v-if="item.content.images.length > 0")
               gallery(:title="item.title"
                 :images="transferToFilepath(item.content.images)")
-  v-container(v-else)
-    v-row(align="center")
-      v-divider
-      h3.font-weight-black.text-h4.ma-4.error--text Activity
-      v-divider
-    v-sheet.rounded-xl(color="transparent")
-      v-container.d-flex.flex-wrap.justify-end.pt-0.pb-0
-        v-chip.ma-2.font-weight-medium(v-for="(type, index) of types.splice(0)"
-          :key="`project-type-${type}-${index}`"
-          dark
-          ripple
-          elevation="2"
-          :color="type | transferToChipColor") {{ type }}
-      v-container  
-        v-row
-          v-col(v-for="(activity, index) of displayActivities('All')"
-            :key="`activity-${activity.name}-${index}`"
-            cols="12"
-            md="4"
-            lg="4"
-            xl="4")
-            card(:activity="activity")
+                
 </template>
 
 <script>
 import Gallery from '@/components/experiences/Gallery.vue'
-import Card from '@/components/experiences/Card.vue'
 import experienceData from '@/assets/experiences.json'
 
 export default {
   name: 'Activity',
   components: {
-    Gallery,
-    Card
+    Gallery
   },
   data: function () {
     return {
@@ -124,20 +126,6 @@ export default {
       return endTime
         ? `${startTime.toLocaleString('en', { month: 'short' })} ${startTime.getFullYear()} – ${endTime.toLocaleString('en', { month: 'short' })} ${endTime.getFullYear()}`
         : `${startTime.toLocaleString('en', { month: 'short' })} ${startTime.getFullYear()} – present`
-    },
-    transferToChipColor: function (value) {
-      switch(value) {
-        case 'Learning':
-          return 'primary' // this.$vuetify.theme.currentTheme.primary
-        case 'Leadership':
-          return 'secondary' // this.$vuetify.theme.currentTheme.secondary
-        case 'Volunteer':
-          return 'light-green' // this.$vuetify.theme.currentTheme.error
-        case 'Other':
-          return 'purple'
-        default:
-          return 'primary' // this.$vuetify.theme.currentTheme.primary
-      }
     }
   },
   methods: {

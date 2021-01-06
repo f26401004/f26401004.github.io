@@ -12,6 +12,7 @@ v-card.rounded-lg.mt-10.pb-5
       v-btn(v-if="!isMobile"
         text
         large
+        to="/projects"
         color="white") More
   carousel(paginationActiveColor="#2176FF"
     paginationColor="rgba(33, 118, 255, 0.3)"

@@ -12,6 +12,7 @@ v-card.rounded-lg.mt-10.pb-5
       v-btn(v-if="!isMobile"
         text
         large
+        to="/moocs"
         color="white") More
   v-container(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pt-10': !isMobile, 'pb-10': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile }")
     v-list(:two-line="isMobile" :three-line="!isMobile")
@@ -35,7 +36,7 @@ v-card.rounded-lg.mt-10.pb-5
                   xl="9")
                   v-list-item-subtitle.mb-1.font-weight-bold.text-left.text-subtitle-1(v-if="!isMobile"
                     :class="`${fieldColor(mooc.field)}--text`") {{ mooc.field }}
-                  v-list-item-title.text-left(:class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile, 'mb-3': !isMobile }") {{ mooc.name }}
+                  v-list-item-title.text-left(:class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile, 'mb-1': !isMobile }") {{ mooc.name }}
                   v-list-item-subtitle.text-left(v-if="isMobile") {{ mooc.completeTime | transferToLocaleString }}
                   v-list-item-subtitle.text-left(v-else) {{ mooc.organization }}
                 v-col(cols="4"
