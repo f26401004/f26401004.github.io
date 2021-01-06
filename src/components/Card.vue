@@ -3,26 +3,26 @@
 v-sheet.rounded-lg.custom-card(outlined
   v-ripple
   elevation="2"
-  :color="cardColor"
+  :color="color"
   style="overflow: hidden;")
   v-hover(v-slot:default="{ hover }")
     v-card(tile
       flat
-      :color="cardColor")
+      :color="color")
       v-img(:src="previewImage"
         :height="isMobile ? '170px' : '320px'")
         v-expand-transition(v-if="!isMobile")
           v-container.pa-0.transition-fast-in-fast-out.custom-card--reveal(v-if="hover")
-            v-sheet.pa-0.custom-card-background(:class="cardColor")
+            v-sheet.pa-0.custom-card-background(:class="color")
             v-sheet.pa-8.custom-card-content
               v-card-title.d-block.pa-0.white--text
-                h5.font-weight-black.text-subtitle-1.text-left(style="line-height: 100%;") {{ activity.tag }}
-                h3.font-weight-black.text-h4.text-left(style="word-break: break-word") {{ activity.title }}
+                h5.font-weight-black.text-subtitle-1.text-left(style="line-height: 100%;") {{ item.type }}
+                h3.font-weight-black.text-h4.text-left(style="word-break: break-word") {{ item.title }}
               v-card-text.pa-0.white--text
-                p.mb-0.text-left.text-h6 {{ activity.organization }}
+                p.mb-0.text-left.text-h6 {{ item.by }}
       v-card-title.d-block.white--text(v-if="isMobile")
-        h5.font-weight-black.text-caption.text-left(style="line-height: 100%;") {{ activity.tag }}
-        h3.font-weight-black.text-subtitle-1.text-left(style="word-break: break-word") {{ activity.title }}
+        h5.font-weight-black.text-caption.text-left(style="line-height: 100%;") {{ item.type }}
+        h3.font-weight-black.text-subtitle-1.text-left(style="word-break: break-word") {{ item.title }}
 
 </template>
 
@@ -30,28 +30,16 @@ v-sheet.rounded-lg.custom-card(outlined
 export default {
   name: 'Card',
   props: {
-    activity: Object
+    item: Object,
+    color: String,
+    prefixURL: String
   },
   computed: {
     previewImage: function () {
-      if (this.activity.content.images.length === 0) {
-        return require('@/assets/images/projects/No_Preview.png')
+      if (this.item.content.images.length === 0) {
+        return require('@/assets/images/No_Preview.png')
       }
-      return require(`@/assets/images/projects/${this.activity.contnet.images[0]}`)
-    },
-    cardColor: function () {
-      switch(this.activity.tag) {
-        case 'Learning':
-          return 'primary' // this.$vuetify.theme.currentTheme.primary
-        case 'Leadership':
-          return 'secondary' // this.$vuetify.theme.currentTheme.secondary
-        case 'Volunteer':
-          return 'light-green' // this.$vuetify.theme.currentTheme.error
-        case 'Other':
-          return 'purple'
-        default:
-          return 'primary' // this.$vuetify.theme.currentTheme.primary
-      }
+      return require(`@/assets/images/${this.item.content.images[0]}`)
     }
   }
 }

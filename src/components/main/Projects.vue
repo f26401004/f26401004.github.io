@@ -88,7 +88,7 @@ export default {
     filterImage: function (value) {
       // Display default image if there is no preview image in the project
       if (value.length === 0) {
-        const temp = require('@/assets/images/projects/No_Preview.png')
+        const temp = require('@/assets/images/No_Preview.png')
         return temp
       }
       return require(value[0])

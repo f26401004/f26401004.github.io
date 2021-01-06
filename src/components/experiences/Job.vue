@@ -26,7 +26,7 @@ v-card.rounded-lg.mt-10.pb-5
                   v-container.pa-0.d-inline-flex.align-center
                     h5.text-left.text-h6.font-weight-medium.text-wrap.primary--text(style="line-height: 120%;") {{ item.title }}
                 v-list-item-subtitle
-                  p.mb-1.text-left {{ item.organization }}
+                  p.mb-1.text-left {{ item.by }}
                 div.d-flex
                   time.text-caption(class="primary--text") {{ item.period | transferToLength}}
                   time.text-caption ・{{ item.period | transferToRange }}
@@ -69,27 +69,29 @@ v-card.rounded-lg.mt-10.pb-5
               :key="`job-tab-item-${item.name}-${idx}`")
               v-card.pl-0.pr-0.text-left(outlined)
                 v-card-text
-                  v-chip.text-h6.mb-2(:color="transferToColor(item.tag)") {{ item.tag }}
+                  v-chip.text-h6.mb-2(:color="transferToColor(item.type)") {{ item.type }}
                   h3.font-weight-bold.text-h4.text-left.primary--text.mb-2 {{ item.title }}
                   div.d-flex.align-center
+                    label.font-weight-bold.text-body-1.text-left.mr-2 {{ item.by }}
                     time.text-body-1(class="primary--text") {{ item.period | transferToLength}}
                     time.text-body-1 ・{{ item.period | transferToRange }}
-              v-container
-                p.ma-0.text-left(v-html="item.content.description")
-              v-container
-                v-alert.d-flex.text-left(v-for="(contribution, cidx) of item.content.contributions"
-                  :key="`experience-${contribution}-${cidx}`"
-                  dark
-                  color="primary"
-                  icon="mdi-thumb-up") <b>Contribution</b>: {{ contribution }}
-                v-alert.text-left(v-for="(award, aidx) of item.content['awards/honors']"
-                  :key="`experience-${award}-${aidx}`"
-                  dark
-                  color="secondary"
-                  icon="mdi-trophy") <b>Honor</b>: {{ award }}
               v-container(v-if="item.content.images.length > 0")
                 gallery(:title="item.title"
                   :images="transferToFilepath(item.content.images)")
+              perfect-scrollbar(style="max-height: 360px;")
+                v-container
+                  p.ma-0.text-left(v-html="item.content.description")
+                v-container
+                  v-alert.d-flex.text-left(v-for="(contribution, cidx) of item.content.contributions"
+                    :key="`experience-${contribution}-${cidx}`"
+                    dark
+                    color="primary"
+                    icon="mdi-thumb-up") <b>Contribution</b>: {{ contribution }}
+                  v-alert.text-left(v-for="(award, aidx) of item.content['awards/honors']"
+                    :key="`experience-${award}-${aidx}`"
+                    dark
+                    color="secondary"
+                    icon="mdi-trophy") <b>Honor</b>: {{ award }}
 </template>
 
 <script>
@@ -111,7 +113,7 @@ export default {
     types: function () {
       let temp = new Set()
       this.experienceData['Job'].forEach(target => {
-        temp.add(target.tag)
+        temp.add(target.type)
       })
       return ['All', ...temp]
     }
@@ -142,7 +144,7 @@ export default {
   methods: {
     transferToFilepath: function (values) {
       return  values.map(target => {
-        return require(`@/assets/images/projects/${target}`)
+        return require(`@/assets/images/${target}`)
       })
     },
     displayJobs: function (type) {
@@ -151,7 +153,7 @@ export default {
       }
       const result = []
       this.experienceData['Job'].forEach(target => {
-        if (target.tag === type) {
+        if (target.type === type) {
           result.push(target)
         }
       })
@@ -163,7 +165,7 @@ export default {
       }
       const result = []
       this.experienceData['Activity'].forEach(target => {
-        if (target.tag === type) {
+        if (target.type === type) {
           result.push(target)
         }
       })

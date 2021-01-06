@@ -60,12 +60,12 @@ div
       v-divider
     v-sheet.rounded-xl(color="transparent")
       v-container.d-flex.flex-wrap.justify-end.pt-0.pb-0
-        v-chip.ma-2.font-weight-medium(v-for="(type, index) of types.splice(0)"
+        v-chip.ma-2.font-weight-medium(v-for="(type, index) of types.splice(1)"
           :key="`project-type-${type}-${index}`"
           dark
           ripple
           elevation="2"
-          :color="type | transferToChipColor") {{ type }}
+          :color="type | transferToColor") {{ type }}
       v-container  
         v-row
           v-col(v-for="(activity, index) of displayActivities('All')"
@@ -74,12 +74,13 @@ div
             md="4"
             lg="4"
             xl="4")
-            card(:activity="activity")
+            card(:item="activity"
+              :color="activity.type | transferToColor")
 </template>
 
 <script>
 import Gallery from '@/components/experiences/Gallery.vue'
-import Card from '@/components/experiences/Card.vue'
+import Card from '@/components/Card.vue'
 import experienceData from '@/assets/experiences.json'
 
 export default {
@@ -98,7 +99,7 @@ export default {
     types: function () {
       let temp = new Set()
       this.experienceData['Activity'].forEach(target => {
-        temp.add(target.tag)
+        temp.add(target.type)
       })
       return ['All', ...temp]
     }
@@ -125,7 +126,7 @@ export default {
         ? `${startTime.toLocaleString('en', { month: 'short' })} ${startTime.getFullYear()} – ${endTime.toLocaleString('en', { month: 'short' })} ${endTime.getFullYear()}`
         : `${startTime.toLocaleString('en', { month: 'short' })} ${startTime.getFullYear()} – present`
     },
-    transferToChipColor: function (value) {
+    transferToColor: function (value) {
       switch(value) {
         case 'Learning':
           return 'primary' // this.$vuetify.theme.currentTheme.primary

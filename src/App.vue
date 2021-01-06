@@ -83,7 +83,8 @@ v-app
           span Contact
   v-main
     perfect-scrollbar(style="max-height: 100vh;"
-      @ps-scroll-y="scrollYEvent")
+      @ps-scroll-y="scrollYEvent"
+      ref="scrollbar")
       vue-page-transition(name="overlay-left-full")
         router-view(
           style="transition: .2s transform ease-in-out;"
@@ -120,6 +121,14 @@ export default {
     },
     isScroll: function () {
       return this.diffHeight > 0
+    }
+  },
+  watch: {
+    $route: function () {
+      // Scroll to top when route changes
+      setTimeout(() => {
+        this.$refs.scrollbar.$el.scrollTop = 0
+      }, 150)
     }
   },
   methods: {

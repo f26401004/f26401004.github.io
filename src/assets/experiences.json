@@ -1,22 +1,22 @@
 {
   "Job": [{
     "title": "Co-founder/Full-stack Engineer",
-    "organization": "CityChaser Co.",
+    "by": "CityChaser Co.",
     "period": ["11/01/2019", ""],
     "icon": "CityChaser.png",
-    "tag": "Entrepreneurship",
+    "type": "Entrepreneurship",
     "content": {
-      "description": "test",
+      "description": "Lorem ipsum dolor sit amet, et mei quis quidam pertinacia, est cu vidisse insolens definiebas, nam te dicam civibus. Pri at recusabo iracundia, ne vix quis dico eleifend, quis putant his te! Ad vis nostrud reformidans, eu equidem admodum per, ut has illum expetendis. Est et dolorem reformidans, ex eros luptatum postulant vel? Munere nemore mentitum cu per!<br><br>Cu nulla fabulas eos, usu facilisi constituam eu. Ea mei duis modus efficiendi, ex petentium periculis posidonium cum. Mucius facilis inciderint ut eam. Sonet oblique nusquam pro no! Dicam laoreet ex vim, facer ridens appetere usu no? Sonet accusata assentior vis in!<br><br>Ex soleat timeam mei, nec alii fabellas neglegentur ei? Case phaedrum intellegat cum in, nam ad brute copiosae, ex ius dicam cetero. Verear habemus sed ne! Discere sadipscing cu his, tollit causae ex vel, usu enim aliquid copiosae no! Ea pri augue labores ocurreret, nam ex eligendi deserunt.",
       "contributions": ["contribution 1", "contribution 2"],
       "awards/honors": ["award 1", "award 2", "award 3"],
-      "images": ["Kyronus_1.png", "Kyronus_2.png", "Kyronus_3.png", "Kyronus_4.png"]
+      "images": ["projects/Kyronus_1.png", "projects/Kyronus_2.png", "projects/Kyronus_3.png", "projects/Kyronus_4.png"]
     }
   }, {
     "title": "Network Research Assistant",
-    "organization": "National Chiao Tung University",
+    "by": "National Chiao Tung University",
     "period": ["09/01/2020", ""],
     "icon": "NCTU.png", 
-    "tag": "Network Engineering",
+    "type": "Network Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -25,10 +25,10 @@
     }
   }, {
     "title": "Software Engineering Research Assistant",
-    "organization": "National Cheng Kung University",
+    "by": "National Cheng Kung University",
     "period": ["11/01/2018", "06/01/2020"],
     "icon": "NCKU.png",
-    "tag": "Software Engineering",
+    "type": "Software Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -37,10 +37,10 @@
     }
   }, {
     "title": "Web Development Internship",
-    "organization": "FarEasTone Telecom",
+    "by": "FarEasTone Telecom",
     "period": ["07/01/2019", "09/01/2019"],
     "icon": "FarEasTone.png",
-    "tag": "Software Engineering",
+    "type": "Software Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -49,10 +49,10 @@
     }
   }, {
     "title": "Teaching Assistant",
-    "organization": "National Cheng Kung University",
+    "by": "National Cheng Kung University",
     "period": ["02/01/2019", "07/01/2019"],
     "icon": "NCKU.png",
-    "tag": "Software Engineering",
+    "type": "Software Engineering",
     "content": {
       "description": "",
       "contributions": [],
@@ -62,10 +62,10 @@
   }],
   "Activity": [{
     "title": "Trainee",
-    "organization": "Advanced Information Security Summer School 2020",
+    "by": "Advanced Information Security Summer School 2020",
     "period": ["07/27/2020", "08/02/2020"],
     "icon": "MOE.png",
-    "tag": "Learning",
+    "type": "Learning",
     "content": {
       "description": "",
       "contributions": [],
@@ -74,10 +74,10 @@
     }
   }, {
     "title": "Trainee",
-    "organization": "Qiskit Global Summer School 2020",
+    "by": "Qiskit Global Summer School 2020",
     "period": ["07/20/2020", "08/07/2020"],
     "icon": "IBM.png",
-    "tag": "Learning",
+    "type": "Learning",
     "content": {
       "description": "",
       "contributions": [],
@@ -86,10 +86,10 @@
     }
   }, {
     "title": "Volunteer",
-    "organization": "GDG Devfest Taipei 2019",
+    "by": "GDG Devfest Taipei 2019",
     "period": ["11/01/2019", "12/01/2019"],
     "icon": "GDGTaipei.png",
-    "tag": "Volunteer",
+    "type": "Volunteer",
     "content": {
       "description": "",
       "contributions": [],
@@ -98,10 +98,10 @@
     }
   }, {
     "title": "Chief of IT Department",
-    "organization": "NCKU Bike Festival 2019",
+    "by": "NCKU Bike Festival 2019",
     "period": ["11/01/2018", "03/01/2019"],
     "icon": "NCKU.png",
-    "tag": "Leadership",
+    "type": "Leadership",
     "content": {
       "description": "",
       "contributions": [],
@@ -110,10 +110,10 @@
     }
   }, {
     "title": "IT Specialist",
-    "organization": "NCKU Student Union 2018",
+    "by": "NCKU Student Union 2018",
     "period": ["07/01/2017", "07/01/2018"],
     "icon": "NCKUSU.png",
-    "tag": "Volunteer",
+    "type": "Volunteer",
     "content": {
       "description": "",
       "contributions": [],
@@ -122,10 +122,10 @@
     }
   }, {
     "title": "Leader of Education Team",
-    "organization": "NCKU CSIE Summer Camp 2018",
+    "by": "NCKU CSIE Summer Camp 2018",
     "period": ["02/01/2018", "08/01/2018"],
     "icon": "NCKUCSIESummerCamp.png",
-    "tag": "Leadership",
+    "type": "Leadership",
     "content": {
       "description": "",
       "contributions": [],
