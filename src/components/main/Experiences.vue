@@ -40,7 +40,7 @@ v-card.rounded-lg.mt-10
                       :class="isMobile ? `text-h6 ${colors[type]}--text` : `text-h5 ${colors[type]}--text`") {{ item.title }}
                   br
                   v-container.pa-0.d-inline-flex.align-center
-                    label.text-left.text-wrap.text-body-2.blue-grey--text {{ item.organization }}
+                    label.text-left.text-wrap.text-body-2.blue-grey--text {{ item.by }}
                 v-col(v-if="!isMobile"
                   cols="12"
                   md="3"
@@ -50,7 +50,7 @@ v-card.rounded-lg.mt-10
                     time.text-body-1(:class="`${colors[type]}--text`") {{ item.period | transferToLength}}
                     time.text-body-1 ・{{ item.period | transferToRange }}
             v-list-item-subtitle(v-if="isMobile")
-              p.mb-1.text-left {{ item.organization }}
+              p.mb-1.text-left {{ item.by }}
             v-container.pa-0.d-flex.justify-start(v-if="isMobile")
               time.text-caption(:class="`${colors[type]}--text`") {{ item.period | transferToLength}}
               time.text-caption ・{{ item.period | transferToRange }}

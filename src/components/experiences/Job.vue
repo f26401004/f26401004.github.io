@@ -43,7 +43,9 @@ v-card.rounded-lg.mt-10.pb-5
               :key="`experience-${award}-${idx}`"
               dark
               color="secondary"
-              icon="mdi-trophy") <b>Honor</b>: {{ award }}
+              icon="mdi-trophy")
+              b Honor
+              span(v-html="award")
           v-container.pa-0(v-if="item.content.images.length > 0")
             gallery(:title="item.title"
               :images="transferToFilepath(item.content.images)")
@@ -69,7 +71,7 @@ v-card.rounded-lg.mt-10.pb-5
               :key="`job-tab-item-${item.name}-${idx}`")
               v-card.pl-0.pr-0.text-left(outlined)
                 v-card-text
-                  v-chip.text-h6.mb-2(:color="transferToColor(item.type)") {{ item.type }}
+                  v-chip.text-h6.mb-2.white--text(:color="transferToColor(item.type)") {{ item.type }}
                   h3.font-weight-bold.text-h4.text-left.primary--text.mb-2 {{ item.title }}
                   div.d-flex.align-center
                     label.font-weight-bold.text-body-1.text-left.mr-2 {{ item.by }}
@@ -86,12 +88,18 @@ v-card.rounded-lg.mt-10.pb-5
                     :key="`experience-${contribution}-${cidx}`"
                     dark
                     color="primary"
-                    icon="mdi-thumb-up") <b>Contribution</b>: {{ contribution }}
+                    icon="mdi-thumb-up")
+                    b Contribution
+                    span :&nbsp;
+                    span(v-html="contribution")
                   v-alert.text-left(v-for="(award, aidx) of item.content['awards/honors']"
                     :key="`experience-${award}-${aidx}`"
                     dark
                     color="secondary"
-                    icon="mdi-trophy") <b>Honor</b>: {{ award }}
+                    icon="mdi-trophy")
+                    b Honor
+                    span :&nbsp;
+                    span(v-html="award")
 </template>
 
 <script>
@@ -144,6 +152,7 @@ export default {
   methods: {
     transferToFilepath: function (values) {
       return  values.map(target => {
+        console.log(`@/assets/images/${target}`)
         return require(`@/assets/images/${target}`)
       })
     },
@@ -181,6 +190,8 @@ export default {
           return 'error' // this.$vuetify.theme.currentTheme.error
         case 'Cybersecurity':
           return 'light-green' // this.$vuetify.theme.currentTheme.error
+        case 'Entrepreneurship':
+          return 'light-blue'
         case 'Other':
           return 'purple'
         default:
