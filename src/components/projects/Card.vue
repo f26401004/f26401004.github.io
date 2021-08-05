@@ -45,7 +45,7 @@ export default {
           return 'primary' // this.$vuetify.theme.currentTheme.primary
         case 'Network Engineering':
           return 'secondary' // this.$vuetify.theme.currentTheme.secondary
-        case 'Artificial Intelligence':
+        case 'Machine Learning':
           return 'error' // this.$vuetify.theme.currentTheme.error
         case 'Cybersecurity':
           return 'light-green' // this.$vuetify.theme.currentTheme.error

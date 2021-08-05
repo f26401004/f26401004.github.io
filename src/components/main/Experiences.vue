@@ -1,7 +1,7 @@
 <template lang="pug">
 
   
-v-card.rounded-lg.mt-10
+v-card.mt-10.pb-2(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
   v-container.secondary
     v-row.pl-8.pr-8(justify="center"
       justify-md="start"
@@ -15,12 +15,12 @@ v-card.rounded-lg.mt-10
         large
         to="/experiences"
         color="white") More
-  v-container.pa-0(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pt-10': !isMobile, 'pb-10': !isMobile }")
-    v-container(v-for="(type, tidx) of Object.keys(displayExperienceData)"
+  v-container.pa-0(:class="{ 'pl-16': !isMobile, 'pr-16': !isMobile, 'pl-4': isMobile, 'pr-4': isMobile, 'pt-10': !isMobile, 'pb-10': !isMobile }")
+    v-container.pa-0(v-for="(type, tidx) of Object.keys(displayExperienceData)"
       :key="`experience-type-${type}-${tidx}`")
-      h4.text-left.font-weight-black(:class="transferToTypeStyle(type)") {{ type }}
+      h4.text-left.font-weight-black.pt-2.pb-2(:class="transferToTypeStyle(type)") {{ type }}
       v-list(:three-line="isMobile")
-        v-list-item.elevation-2.pa-0(v-for="(item, idx) of displayExperienceData[type]"
+        v-list-item.elevation-2.pa-0.rounded(v-for="(item, idx) of displayExperienceData[type]"
           :key="`${type}-item-${item.name}-${idx}`"
           :class="`custom-list-item-${type.toLowerCase()} ${idx !== 0 ? 'mt-2': ''}`"
           @click="")
@@ -40,7 +40,7 @@ v-card.rounded-lg.mt-10
                       :class="isMobile ? `text-h6 ${colors[type]}--text` : `text-h5 ${colors[type]}--text`") {{ item.title }}
                   br
                   v-container.pa-0.d-inline-flex.align-center
-                    label.text-left.text-wrap.text-body-2.blue-grey--text {{ item.organization }}
+                    label.text-left.text-wrap.text-body-2.blue-grey--text {{ item.by }}
                 v-col(v-if="!isMobile"
                   cols="12"
                   md="3"
@@ -49,8 +49,6 @@ v-card.rounded-lg.mt-10
                   v-container.d-flex.justify-end
                     time.text-body-1(:class="`${colors[type]}--text`") {{ item.period | transferToLength}}
                     time.text-body-1 ・{{ item.period | transferToRange }}
-            v-list-item-subtitle(v-if="isMobile")
-              p.mb-1.text-left {{ item.organization }}
             v-container.pa-0.d-flex.justify-start(v-if="isMobile")
               time.text-caption(:class="`${colors[type]}--text`") {{ item.period | transferToLength}}
               time.text-caption ・{{ item.period | transferToRange }}
@@ -158,8 +156,9 @@ export default {
       left: 0;
       content: "";
       display: block;
-      width: 6px;
+      width: 8px;
       height: 100%;
+      border-radius: 3px 0 0 3px;
       background-color: #2176FF;
     }
     background-color: #F6F6F6 !important;
@@ -172,8 +171,9 @@ export default {
       left: 0;
       content: "";
       display: block;
-      width: 6px;
+      width: 8px;
       height: 100%;
+      border-radius: 3px 0 0 3px;
       background-color: #FF6C6C;
     }
     background-color: #F6F6F6 !important;

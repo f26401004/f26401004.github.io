@@ -7,7 +7,7 @@ div.pa-3.page-background-default
       dark
       ripple
       elevation="2"
-      :color="type | transferToChipColor") {{ type }}
+      :color="type | transferToColor") {{ type }}
   v-scroll-y-reverse-transition(hide-on-leave)
     v-container
       v-row(v-show="isDisplay")
@@ -17,12 +17,14 @@ div.pa-3.page-background-default
           md="4"
           lg="4"
           xl="4")
-          card(:project="project")
+          card(prefixURL="@/assets/images/projects/"
+            :item="project"
+            :color="project.type | transferToColor")
 
 </template>
 
 <script>
-import Card from '@/components/projects/Card.vue'
+import Card from '@/components/Card.vue'
 import projectData from '@/assets/projects.json'
 
 export default {
@@ -46,13 +48,13 @@ export default {
     }
   },
   filters: {
-    transferToChipColor: function (value) {
+    transferToColor: function (value) {
       switch(value) {
         case 'Software Engineering':
           return 'primary' // this.$vuetify.theme.currentTheme.primary
         case 'Network Engineering':
           return 'secondary' // this.$vuetify.theme.currentTheme.secondary
-        case 'Artificial Intelligence':
+        case 'Machine Learning':
           return 'error' // this.$vuetify.theme.currentTheme.error
         case 'Cybersecurity':
           return 'light-green' // this.$vuetify.theme.currentTheme.error
