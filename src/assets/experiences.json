@@ -1,5 +1,17 @@
 {
   "Job": [{
+    "title": "Research Assistant",
+    "organization": "Academia Sinica",
+    "period": ["06/25/2021", ""],
+    "icon": "AcademiaSinica.svg",
+    "tag": "Machine Learning",
+    "content": {
+      "description": "test",
+      "contributions": [],
+      "awards/honors": [],
+      "images": []
+    }
+  },{
     "title": "Co-founder/Full-stack Engineer",
     "by": "CityChaser Co.",
     "period": ["11/01/2019", ""],
@@ -14,7 +26,7 @@
   }, {
     "title": "Network Research Assistant",
     "by": "National Chiao Tung University",
-    "period": ["09/01/2020", ""],
+    "period": ["09/01/2020", "01/01/2021"],
     "icon": "NCTU.png", 
     "type": "Network Engineering",
     "content": {

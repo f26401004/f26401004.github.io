@@ -1,6 +1,6 @@
 <template lang="pug">
   
-v-card.rounded-lg.mt-10.pb-5
+v-card.mt-10.pb-2(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
   v-container.secondary
     v-row.pl-8.pr-8(justify="center"
       justify-md="start"
@@ -30,13 +30,13 @@ v-card.rounded-lg.mt-10.pb-5
           v-list-item-content.d-flex.align-center
             v-container.pa-0
               v-row(align="center" no-gutters)
-                v-col(cols="8"
+                v-col.text-truncate(cols="8"
                   md="9"
                   lg="9"
                   xl="9")
                   v-list-item-subtitle.mb-1.font-weight-bold.text-left.text-subtitle-1(v-if="!isMobile"
                     :class="`${fieldColor(mooc.field)}--text`") {{ mooc.field }}
-                  v-list-item-title.text-left(:class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile, 'mb-1': !isMobile }") {{ mooc.name }}
+                  v-list-item-title.text-wrap.text-left(:class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile, 'mb-1': !isMobile }") {{ mooc.name }}
                   v-list-item-subtitle.text-left(v-if="isMobile") {{ mooc.completeTime | transferToLocaleString }}
                   v-list-item-subtitle.text-left(v-else) {{ mooc.organization }}
                 v-col(cols="4"
@@ -87,7 +87,7 @@ export default {
           return 'primary' // this.$vuetify.theme.currentTheme.primary
         case 'Network Engineering':
           return 'secondary' // this.$vuetify.theme.currentTheme.secondary
-        case 'Artificial Intelligence':
+        case 'Machine Learning':
           return 'error' // this.$vuetify.theme.currentTheme.error
         case 'Cybersecurity':
           return 'light-green' // this.$vuetify.theme.currentTheme.error

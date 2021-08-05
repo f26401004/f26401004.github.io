@@ -41,15 +41,15 @@
     "level": 6,
     "labels": ["DDoS", "Port Scanning", "Main-in-the-middle Attack", "Phishing", "Reflection Attack", "Honeypot"]
   }],
-  "Artificial Intelligence": [{
+  "Machine Learning": [{
     "name": "Feature Engineering",
     "icon": "mdi-database-search",
     "level": 9,
     "labels": ["Encoding", "Feature Selection", "Feature Extraction", "Feature Generation"]
   }, {
-    "name": "Machine Learning",
+    "name": "Deep Learning",
     "icon": "mdi-poll-box",
     "level": 8,
-    "labels": ["Classifier", "Reinforcement Learning", "Deep Learning", "Artificial Neural Network"]
+    "labels": ["Classifier", "Reinforcement Learning", "Deep Learning", "Artificial Neural Network", "Graph Neural Network"]
   }]
 }

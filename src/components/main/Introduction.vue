@@ -37,7 +37,7 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
           v-tab-item
             v-card(flat)
               v-card-text.pl-0.pr-0.font-weight-light.text-left.black--text(:class="{ 'text-body-2': isMobile, 'text-body-1': !isMobile }"
-                :style="{ 'line-height': isMobile ? '160%' : '200%' }") I am an experienced project leader specializing <b>software engineering</b>. Until now, I am trying to be an influencer with coding and problem-solving capabilities and apply my skills to real-world challenges.
+                :style="{ 'line-height': isMobile ? '160%' : '200%' }") A highly motivated and passionate <b>software engineer</b> from <b>Carnegie Mellon University</b>, offering 2 years of experience in the full-stack development life-cycle – from concept through delivery of state of the art applications to real-world challenges.
           v-tab-item
             v-container.pl-0.pr-0
               v-list
@@ -53,7 +53,7 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
           v-tab-item
             v-container.pl-0.pr-0
               v-list(two-line)
-                v-list-item.elevation-2.pa-0.d-flex.align-center.custom-list-item-edu(key="degree")
+                v-list-item.elevation-2.pa-0.d-flex.align-center.custom-list-item-edu(key="bs-degree")
                   v-list-item-content.pa-1
                     v-row(align="center")
                       v-col.pt-0.pb-0.pr-0(cols="5")
@@ -62,12 +62,12 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
                         p.ma-0.font-weight-medium.text-caption.text-left NCKU
                         p.ma-0.text-caption.text-left.primary--text Computer Science
                   v-btn.mr-2(icon
-                    @click="isDisplayTranscript = true")
+                    @click="isDisplayTranscript.splice(0, 1, true)")
                     v-icon(color="primary") mdi-chevron-right
                   transition(name="custom-expand-transition")
-                    v-container.elevation-2.pa-0.d-flex.align-center.custom-list-item-transcript.primary(v-if="isDisplayTranscript")
+                    v-container.elevation-2.pa-0.d-flex.align-center.custom-list-item-transcript.primary(v-if="isDisplayTranscript[0]")
                       v-btn.ml-2(icon
-                        @click="isDisplayTranscript = false")
+                        @click="isDisplayTranscript.splice(0, 1, false)")
                         v-icon(color="white") mdi-chevron-left
                       v-list-item-content.pr-2
                         label.font-weight-bold.text-body-1.text-right.white--text(style="line-height: 100%;") GPA: 3.98/4.30
@@ -75,6 +75,28 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
                       v-btn.mr-2(icon)
                         v-icon(color="white"
                           @click="downloadHandler('Bachelor_Transcript')") mdi-file
+                v-list-item.elevation-2.pa-0.mt-2.d-flex.align-center.custom-list-item-edu(key="ms-degree")
+                  v-list-item-content.pa-1
+                    v-row(align="center")
+                      v-col.pt-0.pb-0.pr-0(cols="5")
+                        label.font-weight-bold.text-body-2.primary--text MASTER
+                      v-col.pt-0.pb-0.pl-2(cols="7")
+                        p.ma-0.font-weight-medium.text-caption.text-left CMU
+                        p.ma-0.text-caption.text-left.primary--text Software Engineering
+                  v-btn.mr-2(icon
+                    @click="isDisplayTranscript.splice(1, 1, true)")
+                    v-icon(color="primary") mdi-chevron-right
+                  transition(name="custom-expand-transition")
+                    v-container.elevation-2.pa-0.d-flex.align-center.custom-list-item-transcript.primary(v-if="isDisplayTranscript[1]")
+                      v-btn.ml-2(icon
+                        @click="isDisplayTranscript.splice(1, 1, false)")
+                        v-icon(color="white") mdi-chevron-left
+                      v-list-item-content.pr-2
+                        label.font-weight-bold.text-body-1.text-right.white--text(style="line-height: 100%;") GPA: undetermined
+                        label.text-caption.text-right.white--text(style="line-height: 100%;") Credit: 0/0
+                      v-btn.mr-2(icon)
+                        v-icon(color="white"
+                          @click="downloadHandler('Master_Transcript')") mdi-file
       v-container.pt-0
         v-row.pl-6.pr-6
           v-btn(color="secondary"
@@ -96,12 +118,12 @@ export default {
   name: 'Introduction',
   data: function () {
     return {
-      expertiseTypes: ['Software', 'AI', 'Network'],
+      expertiseTypes: ['Software', 'ML', 'Network'],
       focusAreas: [{
         name: 'Software Engineering',
         icon: 'mdi-monitor-cellphone'
       }, {
-        name: 'Artificial Intelligence',
+        name: 'Machine Learning',
         icon: 'mdi-head-lightbulb'
       }, {
         name: 'Network Engineering',
@@ -112,11 +134,15 @@ export default {
         'CV': require('@/assets/documents/CV_ver_2_5_compressed.pdf'),
         'Bachelor_Transcript': require('@/assets/documents/bachelor_transcript_compressed.pdf'),
       },
-      isDisplayTranscript: false
+      isDisplayTranscript: [false, false]
     }
   },
   methods: {
     downloadHandler: function (filename) {
+      console.log(filename.includes('Master'))
+      if (filename.includes('Master')) {
+        return
+      }
       // Obtain the base64 string of the file
       const file = this.files[filename].default.slice(28)
       // Transfer the file from base64 to blob
