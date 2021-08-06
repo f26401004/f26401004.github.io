@@ -82,13 +82,14 @@ v-app
         v-list-item-content.font-weight-medium.text-center
           span Contact
   v-main
-    perfect-scrollbar(style="max-height: 100vh;"
-      @ps-scroll-y="scrollYEvent"
+    div(style="max-height: 100vh;"
+      v-scrollbar="{ damping: 1 }"
       ref="scrollbar")
       vue-page-transition(name="overlay-left-full")
         router-view(
           style="transition: .2s transform ease-in-out;"
           :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
+      
 </template>
 
 <script>
@@ -131,10 +132,20 @@ export default {
       }, 150)
     }
   },
+  mounted: function () {
+    this.$refs.scrollbar.addEventListener('scroll', this.scrollYEvent)
+  },
   methods: {
     scrollYEvent: function (event) {
-      this.diffHeight = event.target.scrollTop
+      // Get the scroll content element
+      const scrollContent = event.target.querySelector('.scroll-content')
+      const transform = scrollContent.style.transform
+      const diffY = transform.split(',')[1].slice(0, -2)
+      this.diffHeight = parseInt(diffY) * (-1)
     }
+  },
+  destroyed: function () {
+    this.$refs.scrollbar.removeEventListener('scroll', this.scrollYEvent)
   }
 }
 </script>

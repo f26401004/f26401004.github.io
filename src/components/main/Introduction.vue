@@ -105,9 +105,20 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
             :large="isMobile"
             :x-large="!isMobile"
             :style="{ 'width': isMobile ? '100%' : 'auto'}"
+            @click="downloadHandler('Resume')")
+            span.text-button Download Resume
+            v-icon.ml-2(dark) mdi-download
+          v-btn(color="secondary"
+            depressed
+            tile
+            :large="isMobile"
+            :x-large="!isMobile"
+            :style="{ 'width': isMobile ? '100%' : 'auto'}"
+            :class="{ 'mt-2': isMobile, 'ml-4': !isMobile }"
             @click="downloadHandler('CV')")
             span.text-button Download CV
             v-icon.ml-2(dark) mdi-download
+          
 
 </template>
 
@@ -132,6 +143,7 @@ export default {
       currentTab: '',
       files: {
         'CV': require('@/assets/documents/CV_ver_2_5_compressed.pdf'),
+        'Resume': require('@/assets/documents/Resume_ver_1_8_1_compressed.pdf'),
         'Bachelor_Transcript': require('@/assets/documents/bachelor_transcript_compressed.pdf'),
       },
       isDisplayTranscript: [false, false]
