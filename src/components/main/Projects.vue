@@ -1,6 +1,6 @@
 <template lang="pug">
   
-v-card.rounded-lg.mt-10.pb-5
+v-card.mt-10.pb-5(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
   v-container.secondary
     v-row.pl-8.pr-8(justify="center"
       justify-md="start"
@@ -23,13 +23,13 @@ v-card.rounded-lg.mt-10.pb-5
     slide.d-flex.justify-center(v-for="(project, index) of displayProjects"
       :key="`project-${project.name}-${index}`"
       :class="{ 'pt-4': isMobile, 'pb-1': isMobile, 'pt-12': !isMobile, 'pb-8': !isMobile }")
-      v-card(
+      v-card.rounded(
         max-width="320px"
         min-height="534px"
         max-height="534px")
-        v-img.custom-project-preview(:src="project.images | filterImage")
+        v-img.custom-project-preview(:src="project.content.images | filterImage")
         v-card-title.pa-3
-          h4.text-h6.text-left.text-truncate.font-weight-black.primary--text(style="word-break: break-word") {{ project.name }}
+          h4.text-h6.text-left.text-truncate.font-weight-black.primary--text(style="word-break: break-word") {{ project.title }}
         v-divider
         v-container.d-flex.justify-start(style="overflow-x: auto; min-height: 56px;")
           v-chip(v-for="(tag, tidx) of project.tags"
@@ -37,15 +37,16 @@ v-card.rounded-lg.mt-10.pb-5
             ripple
             color="#F6F6F6") {{ tag }}
           label.grey--text(v-if="project.tags.length === 0") no tags
-        v-card-text.pt-0.pb-0(style="height: 152px; max-height: 152px; overflow-y: auto;")
-          p.text-left.text-body-1 {{ project.description }} 
+        v-card-text.pt-0.pb-0(v-scrollbar="{ damping: 0.2 }"
+          style="height: 152px; max-height: 152px; overflow-y: auto;")
+          p.text-left.text-body-1(v-html="project.content.description")
         v-card-actions.pl-4.pr-4
-          p.text-left.text-body-1.ma-0(v-if="project.course.length > 0") <b>Course</b>: {{ project.course }}
-          v-spacer
-          v-btn(text
-            color="secondary")
-            span More
-            v-icon mdi-arrow-right
+          p.text-left.text-body-1.ma-0(v-if="project.by.length > 0") <b>By</b>: {{ project.by }}
+          //- v-spacer
+          //- v-btn(text
+          //-   color="secondary")
+          //-   span More
+          //-   v-icon mdi-arrow-right
 </template>
 
 <script>
@@ -86,12 +87,13 @@ export default {
   },
   filters: {
     filterImage: function (value) {
+      console.log(value)
       // Display default image if there is no preview image in the project
       if (value.length === 0) {
         const temp = require('@/assets/images/No_Preview.png')
         return temp
       }
-      return require(value[0])
+      return require(`@/assets/images/${value[0]}`)
     }
   }
 }

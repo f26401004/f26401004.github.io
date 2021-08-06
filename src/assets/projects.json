@@ -1,6 +1,6 @@
 [{
   "title": "MEC Middlebox",
-  "tags": ["Kubernetes"],
+  "tags": ["Kubernetes", ""],
   "by": "NEtwork and Mobile Systems Lab",
   "type": "Network Engineering",
   "status": "",
@@ -12,7 +12,7 @@
   "link": ""
 }, {
   "title": "Kyronus",
-  "tags": ["test"],
+  "tags": ["Vue.js", "AWS", "GitLab CI/CD"],
   "by": "CityChaser Co.",
   "type": "Software Engineering",
   "status": "",
@@ -24,7 +24,7 @@
   "link": ""
 }, {
   "title": "Online Judge and Game Integrated System",
-  "tags": [],
+  "tags": ["Vue.js", "Express", "Docker"],
   "by": "Intelligent Mobile Service Lab",
   "type": "Software Engineering",
   "status": "",
