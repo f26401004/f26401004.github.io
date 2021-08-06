@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - master
+    - feature/one-page
 jobs:
   build:
     name: Build The Vue App
