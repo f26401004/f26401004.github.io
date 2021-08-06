@@ -20,7 +20,8 @@ div.pa-3.page-background-default
               md="3"
               lg="3"
               xl="3")
-              perfect-scrollbar.pa-4(style="overflow-y: auto"
+              div.pa-4(v-scrollbar="{ damping: 0.2 }"
+                style="overflow-y: auto"
                 :style="{ 'height': isMobile ? '' : '750px', 'max-height': isMobile ? '' : '750px' }")
                 v-list(v-for="(field, index) of fields"
                   :key="`moocs-${field}-${index}`"

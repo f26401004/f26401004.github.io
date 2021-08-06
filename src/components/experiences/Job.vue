@@ -80,7 +80,8 @@ v-card.rounded-lg.mt-10.pb-5
               v-container(v-if="item.content.images.length > 0")
                 gallery(:title="item.title"
                   :images="transferToFilepath(item.content.images)")
-              perfect-scrollbar(style="max-height: 360px;")
+              div(v-scrollbar="{ damping: 0.2 }"
+                style="max-height: 360px;")
                 v-container
                   p.ma-0.text-left(v-html="item.content.description")
                 v-container

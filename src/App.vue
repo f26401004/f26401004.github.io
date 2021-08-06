@@ -128,20 +128,16 @@ export default {
     $route: function () {
       // Scroll to top when route changes
       setTimeout(() => {
-        this.$refs.scrollbar.$el.scrollTop = 0
-      }, 150)
+        this.$refs.scrollbar.$scrollbar.scrollTop = 0
+      }, 300)
     }
   },
   mounted: function () {
     this.$refs.scrollbar.addEventListener('scroll', this.scrollYEvent)
   },
   methods: {
-    scrollYEvent: function (event) {
-      // Get the scroll content element
-      const scrollContent = event.target.querySelector('.scroll-content')
-      const transform = scrollContent.style.transform
-      const diffY = transform.split(',')[1].slice(0, -2)
-      this.diffHeight = parseInt(diffY) * (-1)
+    scrollYEvent: function () {
+      this.diffHeight = this.$refs.scrollbar.$scrollbar.scrollTop
     }
   },
   destroyed: function () {
