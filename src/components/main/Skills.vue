@@ -45,7 +45,7 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
           v-tabs-items.pa-1(v-model="currentSkillIndex")
             v-tab-item(v-for="(type, tidx) of Object.keys(skillData)"
               :key="`skill-tab-${type}-${tidx}`")
-              v-container.d-flex.justify-end()
+              v-container.d-flex.justify-end(v-if="!isMobile")
                 v-fade-transition(hide-on-leave)
                   v-btn(text
                     color="primary"
@@ -103,6 +103,9 @@ export default {
       if (!this.isMounted) {
         return false
       }
+      if (this.isMobile) {
+        return this.currentPanels !== undefined
+      }
       return this.currentPanels.length === this.skillData[this.currentSkill].length
     }
   },
@@ -116,11 +119,12 @@ export default {
   },
   methods: {
     expandAllSkillsByType: function (type) {
-      console.log(Array(this.skillData[type]))
       this.currentPanels = [...this.skillData[type].map((target, index) => index)]
+      console.log(this.currentPanels)
     },
     collapseAllSkillByType: function () {
       this.currentPanels = []
+      console.log(this.currentPanels)
     }
   }
 }
