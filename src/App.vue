@@ -83,7 +83,7 @@ v-app
           span Contact
   v-main
     div(style="max-height: 100vh;"
-      v-scrollbar="{ damping: 1 }"
+      v-scrollbar="{ damping: 0.2 }"
       ref="scrollbar")
       vue-page-transition(name="overlay-left-full")
         router-view(

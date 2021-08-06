@@ -39,10 +39,11 @@ v-card.mt-10.pb-2(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
                   v-list-item-title.text-wrap.text-left(:class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile, 'mb-1': !isMobile }") {{ mooc.name }}
                   v-list-item-subtitle.text-left(v-if="isMobile") {{ mooc.completeTime | transferToLocaleString }}
                   v-list-item-subtitle.text-left(v-else) {{ mooc.organization }}
-                v-col(cols="4"
+                v-col.d-flex.justify-end(cols="4"
                   md="3"
                   lg="3"
-                  xl="3")
+                  xl="3"
+                  :class="{ 'pl-8': !isMobile, 'pr-8': !isMobile, 'pr-4': isMobile }")
                   v-avatar(v-if="isMobile"
                     color="#8fb7f6").text-h6.white--text {{ mooc.score | truncateFloat }}
                   label(v-else) {{ mooc.completeTime | transferToLocaleString }}
