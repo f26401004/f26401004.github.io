@@ -13,74 +13,74 @@ v-app
         label.font-weight-black.text-left.text-uppercase.white--text(style="line-height: 100%;"
           :style="{ 'width': isMobile ? '60%' : '200px' }"
           :class="{ 'text-subtitle-1': isMobile, 'text-h6': !isMobile }") Jack Huang
-      v-spacer
-      v-container.d-flex.justify-end(v-if="!isMobile")
-        v-btn.ma-2(text
-          rounded
-          large
-          link
-          to="/"
-          :color="isScroll ? 'white' : 'primary'")
-          span(:class="{ 'black--text': currentRouteIndex !== 0 }") Home
-        v-btn.ma-2(text
-          rounded
-          large
-          link
-          to="/experiences"
-          :color="isScroll ? 'white' : 'primary'")
-          span(:class="{ 'black--text': currentRouteIndex !== 1 }") Experiences
-        v-btn.ma-2(text
-          rounded
-          large
-          link
-          to="/projects"
-          :color="isScroll ? 'white' : 'primary'")
-          span(:class="{ 'black--text': currentRouteIndex !== 2 }") Projects
-        v-btn.ma-2(text
-          rounded
-          large
-          link
-          to="/moocs"
-          :color="isScroll ? 'white' : 'primary'")
-          span(:class="{ 'black--text': currentRouteIndex !== 3 }") MOOCs
-        v-btn.ma-2(text
-          rounded
-          large
-          link
-          to="/contact"
-          :color="isScroll ? 'white' : 'primary'")
-          span(:class="{ 'black--text': currentRouteIndex !== 4 }") Contact
-      v-app-bar-nav-icon(v-else
-        :class="{ 'dark--text': !isScroll, 'white--text': isScroll }"
-        @click="isDisplayDrawer = true")
-  v-navigation-drawer(v-if="isMobile"
-    v-model="isDisplayDrawer"
-    right
-    app
-    temporary
-    dark
-    color="#333333"
-    height="100vh"
-    width="50vw"
-    overlay-opacity="0")
-    v-list(flat
-      rounded
-      dense)
-      v-list-item(active-class="custom-list-item-active-menu" to="/")
-        v-list-item-content.font-weight-medium.text-center
-          span Home
-      v-list-item(active-class="custom-list-item-active-menu" to="/experiences")
-        v-list-item-content.font-weight-medium.text-center
-          span Experiences
-      v-list-item(active-class="custom-list-item-active-menu" to="/projects")
-        v-list-item-content.font-weight-medium.text-center
-          span Projects
-      v-list-item(active-class="custom-list-item-active-menu" to="/moocs")
-        v-list-item-content.font-weight-medium.text-center
-          span MOOCs
-      v-list-item(active-class="custom-list-item-active-menu" to="/contact")
-        v-list-item-content.font-weight-medium.text-center
-          span Contact
+  //-     v-spacer
+  //-     v-container.d-flex.justify-end(v-if="!isMobile")
+  //-       v-btn.ma-2(text
+  //-         rounded
+  //-         large
+  //-         link
+  //-         to="/"
+  //-         :color="isScroll ? 'white' : 'primary'")
+  //-         span(:class="{ 'black--text': currentRouteIndex !== 0 }") Home
+  //-       v-btn.ma-2(text
+  //-         rounded
+  //-         large
+  //-         link
+  //-         to="/experiences"
+  //-         :color="isScroll ? 'white' : 'primary'")
+  //-         span(:class="{ 'black--text': currentRouteIndex !== 1 }") Experiences
+  //-       v-btn.ma-2(text
+  //-         rounded
+  //-         large
+  //-         link
+  //-         to="/projects"
+  //-         :color="isScroll ? 'white' : 'primary'")
+  //-         span(:class="{ 'black--text': currentRouteIndex !== 2 }") Projects
+  //-       v-btn.ma-2(text
+  //-         rounded
+  //-         large
+  //-         link
+  //-         to="/moocs"
+  //-         :color="isScroll ? 'white' : 'primary'")
+  //-         span(:class="{ 'black--text': currentRouteIndex !== 3 }") MOOCs
+  //-       v-btn.ma-2(text
+  //-         rounded
+  //-         large
+  //-         link
+  //-         to="/contact"
+  //-         :color="isScroll ? 'white' : 'primary'")
+  //-         span(:class="{ 'black--text': currentRouteIndex !== 4 }") Contact
+  //-     v-app-bar-nav-icon(v-else
+  //-       :class="{ 'dark--text': !isScroll, 'white--text': isScroll }"
+  //-       @click="isDisplayDrawer = true")
+  //- v-navigation-drawer(v-if="isMobile"
+  //-   v-model="isDisplayDrawer"
+  //-   right
+  //-   app
+  //-   temporary
+  //-   dark
+  //-   color="#333333"
+  //-   height="100vh"
+  //-   width="50vw"
+  //-   overlay-opacity="0")
+  //-   v-list(flat
+  //-     rounded
+  //-     dense)
+  //-     v-list-item(active-class="custom-list-item-active-menu" to="/")
+  //-       v-list-item-content.font-weight-medium.text-center
+  //-         span Home
+  //-     v-list-item(active-class="custom-list-item-active-menu" to="/experiences")
+  //-       v-list-item-content.font-weight-medium.text-center
+  //-         span Experiences
+  //-     v-list-item(active-class="custom-list-item-active-menu" to="/projects")
+  //-       v-list-item-content.font-weight-medium.text-center
+  //-         span Projects
+  //-     v-list-item(active-class="custom-list-item-active-menu" to="/moocs")
+  //-       v-list-item-content.font-weight-medium.text-center
+  //-         span MOOCs
+  //-     v-list-item(active-class="custom-list-item-active-menu" to="/contact")
+  //-       v-list-item-content.font-weight-medium.text-center
+  //-         span Contact
   v-main
     div(style="max-height: 100vh;"
       v-scrollbar="{ damping: 0.2 }"
