@@ -34,6 +34,10 @@ const routes = [{
   path: '/',
   name: 'Main',
   component: Main
+}, {
+  path: '*',
+  name: 'Other',
+  component: Main
 }]
 
 const router = new VueRouter({
