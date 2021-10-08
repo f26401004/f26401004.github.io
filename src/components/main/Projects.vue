@@ -32,7 +32,7 @@ v-card.mt-10.pb-5(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
           h4.text-h6.text-left.text-truncate.font-weight-black.primary--text(style="word-break: break-word") {{ project.title }}
         v-divider
         v-container.d-flex.justify-start(style="overflow-x: auto; min-height: 56px;")
-          v-chip(v-for="(tag, tidx) of project.tags"
+          v-chip.mr-2(v-for="(tag, tidx) of project.tags"
             :key="`project-${project.name}-tag-${tag}-${tidx}`"
             ripple
             color="#F6F6F6") {{ tag }}
@@ -50,60 +50,60 @@ v-card.mt-10.pb-5(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
 </template>
 
 <script>
-import projectData from '@/assets/projects.json'
-import { Carousel, Slide } from 'vue-carousel'
+import projectData from "@/assets/projects.json";
+import { Carousel, Slide } from "vue-carousel";
 
 export default {
-  name: 'Projects',
+  name: "Projects",
   components: {
     Carousel,
-    Slide
+    Slide,
   },
-  data: function () {
+  data: function() {
     return {
-      projectData
-    }
+      projectData,
+    };
   },
   computed: {
-    displayProjects: function () {
-      let temp = this.projectData.filter(target => !target.status)
+    displayProjects: function() {
+      let temp = this.projectData.filter((target) => !target.status);
       // Push the latest projects and make the number of projects that displays is at least 3
       if (temp.length < 3) {
         // Obtain and sort the finished projects
-        const finishedProjects = this.projectData.filter(target => target.status)
+        const finishedProjects = this.projectData.filter(
+          (target) => target.status
+        );
         finishedProjects.sort((a, b) => {
-          const timeA = new Date(a.status)
-          const timeB = new Date(b.status)
-          return timeB.getTime() - timeA.getTime()
-        })
+          const timeA = new Date(a.status);
+          const timeB = new Date(b.status);
+          return timeB.getTime() - timeA.getTime();
+        });
         // Cut the projects
-        const fillingProjects = finishedProjects.slice(0, 3 - temp.length)
-        temp = [...temp, ...fillingProjects]
+        const fillingProjects = finishedProjects.slice(0, 3 - temp.length);
+        temp = [...temp, ...fillingProjects];
       } else if (temp.length > 3) {
-        temp = temp.slice(0, 3)
+        temp = temp.slice(0, 3);
       }
-      return temp
-    }
+      return temp;
+    },
   },
   filters: {
-    filterImage: function (value) {
-      console.log(value)
+    filterImage: function(value) {
+      console.log(value);
       // Display default image if there is no preview image in the project
       if (value.length === 0) {
-        const temp = require('@/assets/images/No_Preview.png')
-        return temp
+        const temp = require("@/assets/images/No_Preview.png");
+        return temp;
       }
-      return require(`@/assets/images/${value[0]}`)
-    }
-  }
-}
+      return require(`@/assets/images/${value[0]}`);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .custom-project-preview {
   width: 327px;
   height: 205px;
 }
-
 </style>

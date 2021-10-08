@@ -1,229 +1,263 @@
-[{
-  "title": "MEC Middlebox",
-  "tags": ["Kubernetes", ""],
-  "by": "NEtwork and Mobile Systems Lab",
-  "type": "Network Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "<p><span style='color: rgb(0, 0, 0); font-family: Verdana, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;'><strong>Mobile/Multi-access edge computing (MEC)</strong> is one key technology to achieve low-latency performance in cellular networks. It has been determined as a key feature in future 5G networks by both ETSI and 3GPP standardization organizations. It seeks to provide a cloud computing platform at the network edge to be closer to mobile users than conventional cloud systems. Due to emerging low-latency demands, several MEC deployment solutions are being in development. We seek to design a MEC platform that can be easily deployed in 4G LTE networks, as well as may be used as a reference design for future 5G networks.</span></p><p><span style='color: rgb(0, 0, 0); font-size: 14px;'>In this project, I focused on <strong>the integration between Kubernetes and MEC platform</strong>, allowing end-users to define their custom domain name for a specific DNS provider.&nbsp;</span><span style='color: rgb(0, 0, 0); font-size: 14px;'>To be more specific, I first <span style='color: rgb(0, 0, 0); font-size: 14px;'>I containerized the MEC kernel module (involving GPRS Tunnelling Protocol module and forwarding module), making network administrator easier to deploy the MEC kernel as either a Docker container or Helm Chart to their environment. Secondly, I&nbsp;</span></span><span style='color: rgb(0, 0, 0); font-size: 14px;'>established the experiment environment with three machines acting as LTE EPC (Evolved Packet Core), UE(User Equipment), and MEC in 4G LTE, which involves NextEPC installation and configuration, packet routing using iptables and arp, and microk8s installation and configuration. On top of that, I packaged layer-4 and layer-7 load balancing to the MEC platform with External-DNS, enabling end-users to use annotation declaration to configure external DNS servers (AWS Route53, Google CloudDNS, and others) for Kubernetes Ingresses and Services. Finally, I experimented with many features provided by the Rancher, the open-source multi-cluster orchestration platform, including continuous integration and delivery, health and readiness probe, basic operation and configuration on a service and ingress in the Kubernetes.</span></p>",
-    "images": []
+[
+  {
+    "title": "MEC Middlebox",
+    "tags": ["Kubernetes", "Docker", "Rancher"],
+    "by": "NEtwork and Mobile Systems Lab",
+    "type": "Network Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "<p>In this project, I first containerized the MEC kernel module (involving GPRS Tunnelling Protocol module and forwarding module), making network administrator easier to deploy the MEC kernel as either a Docker container or Helm Chart to their environment. Secondly, I&nbsp;established the experiment environment with three machines acting as LTE EPC (Evolved Packet Core), UE(User Equipment), and MEC in 4G LTE, which involves NextEPC installation and configuration, packet routing using iptables and arp, and microk8s installation and configuration. On top of that, I packaged layer-4 and layer-7 load balancing to the MEC platform with External-DNS, enabling end-users to use annotation declaration to configure external DNS servers (AWS Route53, Google CloudDNS, and others) for Kubernetes Ingresses and Services. Finally, I experimented with many features provided by the Rancher, the open-source multi-cluster orchestration platform, including continuous integration and delivery, health and readiness probe, basic operation and configuration on a service and ingress in the Kubernetes.</p>",
+      "images": [
+        "projects/MEC_1.png",
+        "projects/MEC_2.png",
+        "projects/MEC_3.png"
+      ]
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Kyronus",
-  "tags": ["Vue.js", "AWS", "GitLab CI/CD"],
-  "by": "CityChaser Co.",
-  "type": "Software Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": ["projects/Kyronus_1.png", "projects/Kyronus_2.png", "projects/Kyronus_3.png", "projects/Kyronus_4.png"]
+  {
+    "title": "Kyronus",
+    "tags": ["Vue.js", "AWS", "GitLab CI/CD"],
+    "by": "CityChaser Studio",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "<p>Acted as full-stack engineer, I designed and built core for games including collecting resources, mining, offline countdown timer, etc. In addition, I constructed several back-end APIs including collect resource system, email system using Express.js, DynamoDB, AWS Lambda. Apart from the game mechanism,  I developed effective solutions across Android and iOS platforms. In 2020, I led the development of integration between web app and mobile app and was responsible for successfully migrating all development modules from our web-based application to a one-codebase hybrid mobile app, significantly reducing the development process. On top of that, I am attentive to the need for continuous process improvements. I proposed an automated mobile deployment flow taking advantage of containers to reduce the delivery cycle, which resulted in an average of 50% reduction in hours between project kickoff and production launch. </p>",
+      "images": [
+        "projects/Kyronus_1.png",
+        "projects/Kyronus_2.png",
+        "projects/Kyronus_3.png",
+        "projects/Kyronus_4.png"
+      ]
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Online Judge and Game Integrated System",
-  "tags": ["Vue.js", "Express", "Docker"],
-  "by": "Intelligent Mobile Service Lab",
-  "type": "Software Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Online Judge and Game Integrated System",
+    "tags": ["Vue.js", "Express", "Docker"],
+    "by": "Intelligent Mobile Service Lab",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "<p>In this project, acted as a project leader, I lead the 6-person team to develop an online judge platform to evaluate 300+ students&#39; performance in Program Design (I) course 2020. The project mainly includes platform construction and evaluation security. For the platform construction, we adopted Vue.js as a frontend framework to build our website. Furthermore, we applied a state management pattern using Vuex, a centralized store for all the components in an application, which is with rules ensuring that the state can only be mutated in a predictable fashion. Finally, we developed a content management system (CMS) with CRUD Web APIs for coding problem management. As for evaluation security, we sandboxed the process with the Linux system call filtering, namespace isolation, and discretionary access control to prevent users from escalating their privilege and accessing unauthorized resources. We also restricted the memory usage for each evaluation process and scaled the number of the service when under high traffic.</p>",
+      "images": [
+        "projects/OJ_1.png",
+        "projects/OJ_2.png",
+        "projects/OJ_3.png",
+        "projects/OJ_4.png"
+      ]
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "NCKU Bike Festival 2019 Official Website",
-  "tags": [],
-  "by": "NCKU Bike Festival",
-  "type": "Software Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "NCKU Bike Festival 2019 Official Website",
+    "tags": [],
+    "by": "NCKU Bike Festival",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "μC Compiler",
-  "tags": [],
-  "type": "Software Engineering",
-  "by": "Compiler Construction Course",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "μC Compiler",
+    "tags": [],
+    "type": "Software Engineering",
+    "by": "Compiler Construction Course",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "RR Load Balancer",
-  "tags": [],
-  "by": "Network Management Course",
-  "type": "Network Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "RR Load Balancer",
+    "tags": [],
+    "by": "Network Management Course",
+    "type": "Network Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "HackMDir",
-  "tags": [],
-  "by": "Programming Languages Course",
-  "type": "Software Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "HackMDir",
+    "tags": [],
+    "by": "Programming Languages Course",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Remote iPhone Exploitation with iMessage",
-  "tags": [],
-  "by": "Information Security Systems Course",
-  "type": "Cybersecurity",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Remote iPhone Exploitation with iMessage",
+    "tags": [],
+    "by": "Information Security Systems Course",
+    "type": "Cybersecurity",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Fake alert with arbitrary content in public warning level using USRP b210",
-  "tags": [],
-  "by": "Advanced Information Security Summer School",
-  "type": "Cybersecurity",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Fake alert with arbitrary content in public warning level using USRP b210",
+    "tags": [],
+    "by": "Advanced Information Security Summer School",
+    "type": "Cybersecurity",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Spec Organizer",
-  "tags": [],
-  "by": "Mei-Chu Hackathon 2019",
-  "type": "Software Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Spec Organizer",
+    "tags": [],
+    "by": "Mei-Chu Hackathon 2019",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "GitHub Pull-request Recommendation System",
-  "tags": [],
-  "by": "Social Network and Recommendation System Course",
-  "type": "Machine Learning",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "GitHub Pull-request Recommendation System",
+    "tags": [],
+    "by": "Social Network and Recommendation System Course",
+    "type": "Machine Learning",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Enterprise KPI Dashboard",
-  "tags": [],
-  "by": "Web Development Intern at FarEastone Telecom",
-  "type": "Software Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Enterprise KPI Dashboard",
+    "tags": [],
+    "by": "Web Development Intern at FarEastone Telecom",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Fraud Call Detection",
-  "tags": [],
-  "by": "Web Development Intern at FarEastone Telecom",
-  "type": "Machine Learning",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Fraud Call Detection",
+    "tags": [],
+    "by": "Web Development Intern at FarEastone Telecom",
+    "type": "Machine Learning",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "ATG.io -- A network I/O game with Q-learning",
-  "tags": [],
-  "by": "Independent Study",
-  "type": "Machine Learning",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "ATG.io -- A network I/O game with Q-learning",
+    "tags": [],
+    "by": "Independent Study",
+    "type": "Machine Learning",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Smash the Noodles",
-  "tags": [],
-  "by": "Global Game Jam 2020",
-  "type": "Other",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Smash the Noodles",
+    "tags": [],
+    "by": "Global Game Jam 2020",
+    "type": "Other",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Cube Campaign",
-  "tags": [],
-  "by": "Global Game Jam 2019",
-  "type": "Other",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Cube Campaign",
+    "tags": [],
+    "by": "Global Game Jam 2019",
+    "type": "Other",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Passerby",
-  "tags": [],
-  "type": "Software Engineering",
-  "by": "Mei-Chu Hackathon 2020",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Passerby",
+    "tags": [],
+    "type": "Software Engineering",
+    "by": "Mei-Chu Hackathon 2020",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Virtual Payment System",
-  "tags": [],
-  "by": "NCKU XCORP",
-  "type": "Software Engineering",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
+  {
+    "title": "Virtual Payment System",
+    "tags": [],
+    "by": "NCKU XCORP",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
   },
-  "link": ""
-}, {
-  "title": "Barter - Facebook Chatbot",
-  "tags": [],
-  "by": "Theory of Computation",
-  "type": "Other",
-  "status": "",
-  "score": "",
-  "content": {
-    "description": "description here",
-    "images": []
-  },
-  "link": ""
-}]
+  {
+    "title": "Barter - Facebook Chatbot",
+    "tags": [],
+    "by": "Theory of Computation",
+    "type": "Other",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
+  }
+]

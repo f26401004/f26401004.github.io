@@ -59,8 +59,8 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
                       v-col.pt-0.pb-0.pr-0(cols="5")
                         label.font-weight-bold.text-body-2.primary--text BACHELOR
                       v-col.pt-0.pb-0.pl-2(cols="7")
-                        p.ma-0.font-weight-medium.text-caption.text-left NCKU
-                        p.ma-0.text-caption.text-left.primary--text Computer Science
+                        p.ma-0.font-weight-medium.text-caption.text-left National Cheng Kung University
+                        p.ma-0.text-caption.text-left.primary--text Computer Science and Information Engineering
                   v-btn.mr-2(icon
                     @click="isDisplayTranscript.splice(0, 1, true)")
                     v-icon(color="primary") mdi-chevron-right
@@ -81,8 +81,8 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
                       v-col.pt-0.pb-0.pr-0(cols="5")
                         label.font-weight-bold.text-body-2.primary--text MASTER
                       v-col.pt-0.pb-0.pl-2(cols="7")
-                        p.ma-0.font-weight-medium.text-caption.text-left CMU
-                        p.ma-0.text-caption.text-left.primary--text Software Engineering
+                        p.ma-0.font-weight-medium.text-caption.text-left Carnegie Mellon University
+                        p.ma-0.text-caption.text-left.primary--text Software Engineering - Applied Study
                   v-btn.mr-2(icon
                     @click="isDisplayTranscript.splice(1, 1, true)")
                     v-icon(color="primary") mdi-chevron-right
@@ -93,7 +93,7 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
                         v-icon(color="white") mdi-chevron-left
                       v-list-item-content.pr-2
                         label.font-weight-bold.text-body-1.text-right.white--text(style="line-height: 100%;") GPA: undetermined
-                        label.text-caption.text-right.white--text(style="line-height: 100%;") Credit: 0/0
+                        label.text-caption.text-right.white--text(style="line-height: 100%;") Unit: 37/37
                       v-btn.mr-2(icon)
                         v-icon(color="white"
                           @click="downloadHandler('Master_Transcript')") mdi-file
@@ -123,59 +123,60 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
 </template>
 
 <script>
-import b64toBlob from '@/plugins/b64toBlob.js'
+import b64toBlob from "@/plugins/b64toBlob.js";
 
 export default {
-  name: 'Introduction',
-  data: function () {
+  name: "Introduction",
+  data: function() {
     return {
-      expertiseTypes: ['Software', 'ML', 'Network'],
-      focusAreas: [{
-        name: 'Software Engineering',
-        icon: 'mdi-monitor-cellphone'
-      }, {
-        name: 'Machine Learning',
-        icon: 'mdi-head-lightbulb'
-      }, {
-        name: 'Network Engineering',
-        icon: 'mdi-router-network'
-      }],
-      currentTab: '',
+      expertiseTypes: ["Software", "ML", "Network"],
+      focusAreas: [
+        {
+          name: "Software Engineering",
+          icon: "mdi-monitor-cellphone",
+        },
+        {
+          name: "Machine Learning",
+          icon: "mdi-head-lightbulb",
+        },
+        {
+          name: "Network Engineering",
+          icon: "mdi-router-network",
+        },
+      ],
+      currentTab: "",
       files: {
-        'CV': require('@/assets/documents/CV_ver_2_5_compressed.pdf'),
-        'Resume': require('@/assets/documents/Resume_ver_1_8_1_compressed.pdf'),
-        'Bachelor_Transcript': require('@/assets/documents/bachelor_transcript_compressed.pdf'),
+        CV: require("@/assets/documents/CV_ver_2_5_compressed.pdf"),
+        Resume: require("@/assets/documents/Resume_ver_1_9_compressed.pdf"),
+        Bachelor_Transcript: require("@/assets/documents/bachelor_transcript_compressed.pdf"),
       },
-      isDisplayTranscript: [false, false]
-    }
+      isDisplayTranscript: [false, false],
+    };
   },
   methods: {
-    downloadHandler: function (filename) {
-      console.log(filename.includes('Master'))
-      if (filename.includes('Master')) {
-        return
+    downloadHandler: function(filename) {
+      if (filename.includes("Master")) {
+        return;
       }
       // Obtain the base64 string of the file
-      const file = this.files[filename].default.slice(28)
+      const file = this.files[filename].default.slice(28);
       // Transfer the file from base64 to blob
-      const blob = b64toBlob(file, 'application/pdf')
+      const blob = b64toBlob(file, "application/pdf");
       // Obtain the url from blob by createObjectURL
-      const url = window.URL.createObjectURL(blob)
+      const url = window.URL.createObjectURL(blob);
       // Use an a element and trigger click event
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `Chun_Hao_Huang_${filename}.pdf`
-      a.click()
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Chun_Hao_Huang_${filename}.pdf`;
+      a.click();
       // Revoke the url we created
-      window.URL.revokeObjectURL(url)
-    }
-  }
-}
+      window.URL.revokeObjectURL(url);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
-
 @media only screen and (max-width: 600px) {
   .custom-figure {
     position: absolute;
@@ -199,16 +200,14 @@ export default {
   }
 }
 
-
 .v-tab {
   text-transform: none !important;
 }
 
 .custom-tab-active {
-  background-color: #2176FF;
+  background-color: #2176ff;
   color: white;
-  transition: .2s background-color ease-in-out,
-    .2s color ease-in-out;
+  transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
 }
 .custom-section {
   &-figure {
@@ -223,12 +222,12 @@ export default {
       display: block;
       width: 30px;
       height: 7px;
-      background-color: #2176FF;
+      background-color: #2176ff;
       margin-right: 8px;
     }
 
     label + label::before {
-      content: '|';
+      content: "|";
       margin: 0 4px;
     }
   }
@@ -244,7 +243,7 @@ export default {
       display: block;
       width: 7px;
       height: 100%;
-      background-color: #2176FF;
+      background-color: #2176ff;
     }
   }
   &-edu {
@@ -257,16 +256,18 @@ export default {
       display: block;
       width: 7px;
       height: 100%;
-      background-color: #2176FF;
+      background-color: #2176ff;
     }
   }
 }
 
 .custom-expand-transition {
-  &-enter, &-leave-to {
+  &-enter,
+  &-leave-to {
     transform: translateX(-100%);
   }
-  &-enter-active, &-leave-active {
+  &-enter-active,
+  &-leave-active {
     position: absolute;
   }
 }
@@ -279,5 +280,4 @@ export default {
   transition: 0.2s transform cubic-bezier(0.83, 0, 0.17, 1);
   transform-origin: left;
 }
-
 </style>
