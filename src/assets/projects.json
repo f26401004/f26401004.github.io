@@ -53,6 +53,32 @@
     "link": ""
   },
   {
+    "title": "HackMDir",
+    "tags": ["React.js", "Redux", "Chrome Extension"],
+    "by": "Programming Languages Course",
+    "type": "Software Engineering",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": ["projects/HackMDir_1.png"]
+    },
+    "link": ""
+  },
+  {
+    "title": "ATG.io -- A network I/O game with Q-learning",
+    "tags": [],
+    "by": "Independent Study",
+    "type": "Machine Learning",
+    "status": "",
+    "score": "",
+    "content": {
+      "description": "description here",
+      "images": []
+    },
+    "link": ""
+  },
+  {
     "title": "NCKU Bike Festival 2019 Official Website",
     "tags": [],
     "by": "NCKU Bike Festival",
@@ -83,19 +109,6 @@
     "tags": [],
     "by": "Network Management Course",
     "type": "Network Engineering",
-    "status": "",
-    "score": "",
-    "content": {
-      "description": "description here",
-      "images": []
-    },
-    "link": ""
-  },
-  {
-    "title": "HackMDir",
-    "tags": [],
-    "by": "Programming Languages Course",
-    "type": "Software Engineering",
     "status": "",
     "score": "",
     "content": {
@@ -173,19 +186,6 @@
     "title": "Fraud Call Detection",
     "tags": [],
     "by": "Web Development Intern at FarEastone Telecom",
-    "type": "Machine Learning",
-    "status": "",
-    "score": "",
-    "content": {
-      "description": "description here",
-      "images": []
-    },
-    "link": ""
-  },
-  {
-    "title": "ATG.io -- A network I/O game with Q-learning",
-    "tags": [],
-    "by": "Independent Study",
     "type": "Machine Learning",
     "status": "",
     "score": "",

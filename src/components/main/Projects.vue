@@ -19,7 +19,8 @@ v-card.mt-10.pb-5(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
     :per-page="isMobile ? 1 : 3"
     :paginationPadding="12"
     :paginationSize="18"
-    :class="{ 'pl-8': !isMobile, 'pr-8': !isMobile }")
+    :class="{ 'pl-8': !isMobile, 'pr-8': !isMobile }"
+    ref="carousel")
     slide.d-flex.justify-center(v-for="(project, index) of displayProjects"
       :key="`project-${project.name}-${index}`"
       :class="{ 'pt-4': isMobile, 'pb-1': isMobile, 'pt-12': !isMobile, 'pb-8': !isMobile }")
@@ -41,7 +42,7 @@ v-card.mt-10.pb-5(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
           style="height: 152px; max-height: 152px; overflow-y: auto;")
           p.text-left.text-body-1(v-html="project.content.description")
         v-card-actions.pl-4.pr-4
-          p.text-left.text-body-1.ma-0(v-if="project.by.length > 0") <b>By</b>: {{ project.by }}
+          p.text-left.text-body-1.ma-0(v-if="project.by.length > 0") <b>{{ project.by }}</b>
           //- v-spacer
           //- v-btn(text
           //-   color="secondary")
@@ -64,6 +65,12 @@ export default {
       projectData,
     };
   },
+  mounted: function() {
+    setTimeout(() => {
+      this.$refs["carousel"].onResize();
+      this.$refs["carousel"].goToPage(0);
+    }, 200);
+  },
   computed: {
     displayProjects: function() {
       let temp = this.projectData.filter((target) => !target.status);
@@ -82,7 +89,7 @@ export default {
         const fillingProjects = finishedProjects.slice(0, 3 - temp.length);
         temp = [...temp, ...fillingProjects];
       } else if (temp.length > 3) {
-        temp = temp.slice(0, 3);
+        temp = temp.slice(0, 5);
       }
       return temp;
     },
