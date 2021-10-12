@@ -53,29 +53,18 @@ module.exports = {
           // Default number of concurrent runs: os.cpus().length - 1
           parallel: true,
           minify: TerserPlugin.esbuildMinify,
+          terserOptions: {
+            format: {
+              comments: !IS_PROD,
+            },
+            compress: {
+              drop_console: IS_PROD,
+            },
+          },
+          extractComments: !IS_PROD,
         }),
         new CssMinimizerPlugin(),
       ],
     },
   },
 };
-
-// module.exports = {
-//   configureWebpack: {
-//     module: {
-//       rules: [
-//         {
-//           test: /\.(pdf)(\?.*)?$/,
-//           use: [
-//             {
-//               loader: "url-loader",
-//               options: {
-//                 name: "files/[name].[hash:8].[ext]",
-//               },
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   },
-// };
