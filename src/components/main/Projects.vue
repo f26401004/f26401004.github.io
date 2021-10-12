@@ -89,7 +89,7 @@ export default {
         const fillingProjects = finishedProjects.slice(0, 3 - temp.length);
         temp = [...temp, ...fillingProjects];
       } else if (temp.length > 3) {
-        temp = temp.slice(0, 5);
+        temp = temp.slice(0, 6);
       }
       return temp;
     },

@@ -83,56 +83,59 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
 </template>
 
 <script>
-import skillData from '@/assets/skills.json'
+import skillData from "@/assets/skills.json";
 
 export default {
-  name: 'Skills',
-  data: function () {
+  name: "Skills",
+  data: function() {
     return {
       skillData,
       currentSkillIndex: 0,
       currentPanels: [],
-      isMounted: false
-    }
+      isMounted: false,
+    };
   },
   computed: {
-    currentSkill: function () {
-      const types = Object.keys(this.skillData)
-      return types[this.currentSkillIndex]
+    currentSkill: function() {
+      const types = Object.keys(this.skillData);
+      return types[this.currentSkillIndex];
     },
-    isExpanded: function () {
+    isExpanded: function() {
       if (!this.isMounted) {
-        return false
+        return false;
       }
       if (this.isMobile) {
-        return this.currentPanels !== undefined
+        return this.currentPanels !== undefined;
       }
-      return this.currentPanels.length === this.skillData[this.currentSkill].length
-    }
+      return (
+        this.currentPanels.length === this.skillData[this.currentSkill].length
+      );
+    },
   },
-  mounted: function () {
+  mounted: function() {
     // // Initializing the currentPanels
     // const types = Object.keys(this.skillData)
     // types.forEach(type => {
     //   this.currentPanels[type] = []
     // })
-    this.isMounted = true
+    this.isMounted = true;
   },
   methods: {
-    expandAllSkillsByType: function (type) {
-      this.currentPanels = [...this.skillData[type].map((target, index) => index)]
-      console.log(this.currentPanels)
+    expandAllSkillsByType: function(type) {
+      this.currentPanels = [
+        ...this.skillData[type].map((target, index) => index),
+      ];
+      console.log(this.currentPanels);
     },
-    collapseAllSkillByType: function () {
-      this.currentPanels = []
-      console.log(this.currentPanels)
-    }
-  }
-}
+    collapseAllSkillByType: function() {
+      this.currentPanels = [];
+      console.log(this.currentPanels);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .custom-skill-preview {
   width: 90%;
   height: 90%;
@@ -154,36 +157,34 @@ export default {
 }
 
 @media only screen and (min-width: 601px) {
-  /deep/ .custom-carousel .v-carousel__controls__item {
+  ::v-deep .custom-carousel .v-carousel__controls__item {
     padding-bottom: 80px !important;
   }
 }
 
-
-
-/deep/ .custom-carousel .v-carousel__controls__item.v-btn {
+::v-deep .custom-carousel .v-carousel__controls__item.v-btn {
   color: rgba(33, 118, 255, 0.5) !important;
 }
 
-/deep/ .custom-carousel .v-carousel__controls__item.v-btn.v-btn--active {
-  color: #2176FF !important;
+::v-deep .custom-carousel .v-carousel__controls__item.v-btn.v-btn--active {
+  color: #2176ff !important;
 }
 
-/deep/ .custom-carousel .v-carousel__controls__item.v-btn.v-btn--active:before {
+::v-deep
+  .custom-carousel
+  .v-carousel__controls__item.v-btn.v-btn--active:before {
   opacity: 0 !important;
 }
 
-/deep/ .custom-carousel .v-carousel__controls__item.v-btn:hover {
-  color: #2176FF !important;
+::v-deep .custom-carousel .v-carousel__controls__item.v-btn:hover {
+  color: #2176ff !important;
 }
 
-/deep/ .custom-carousel .v-carousel__controls__item.v-btn:hover:before {
+::v-deep .custom-carousel .v-carousel__controls__item.v-btn:hover:before {
   opacity: 0 !important;
 }
 
-/deep/ .custom-carousel .v-carousel__controls__item .v-icon {
+::v-deep .custom-carousel .v-carousel__controls__item .v-icon {
   opacity: 1 !important;
 }
-
-
 </style>

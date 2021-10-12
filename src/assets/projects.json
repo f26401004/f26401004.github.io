@@ -9,9 +9,9 @@
     "content": {
       "description": "<p>In this project, I first containerized the MEC kernel module (involving GPRS Tunnelling Protocol module and forwarding module), making network administrator easier to deploy the MEC kernel as either a Docker container or Helm Chart to their environment. Secondly, I&nbsp;established the experiment environment with three machines acting as LTE EPC (Evolved Packet Core), UE(User Equipment), and MEC in 4G LTE, which involves NextEPC installation and configuration, packet routing using iptables and arp, and microk8s installation and configuration. On top of that, I packaged layer-4 and layer-7 load balancing to the MEC platform with External-DNS, enabling end-users to use annotation declaration to configure external DNS servers (AWS Route53, Google CloudDNS, and others) for Kubernetes Ingresses and Services. Finally, I experimented with many features provided by the Rancher, the open-source multi-cluster orchestration platform, including continuous integration and delivery, health and readiness probe, basic operation and configuration on a service and ingress in the Kubernetes.</p>",
       "images": [
-        "projects/MEC_1.png",
-        "projects/MEC_2.png",
-        "projects/MEC_3.png"
+        "projects/MEC_1.webp",
+        "projects/MEC_2.webp",
+        "projects/MEC_3.webp"
       ]
     },
     "link": ""
@@ -26,10 +26,10 @@
     "content": {
       "description": "<p>Acted as full-stack engineer, I designed and built core for games including collecting resources, mining, offline countdown timer, etc. In addition, I constructed several back-end APIs including collect resource system, email system using Express.js, DynamoDB, AWS Lambda. Apart from the game mechanism,  I developed effective solutions across Android and iOS platforms. In 2020, I led the development of integration between web app and mobile app and was responsible for successfully migrating all development modules from our web-based application to a one-codebase hybrid mobile app, significantly reducing the development process. On top of that, I am attentive to the need for continuous process improvements. I proposed an automated mobile deployment flow taking advantage of containers to reduce the delivery cycle, which resulted in an average of 50% reduction in hours between project kickoff and production launch. </p>",
       "images": [
-        "projects/Kyronus_1.png",
-        "projects/Kyronus_2.png",
-        "projects/Kyronus_3.png",
-        "projects/Kyronus_4.png"
+        "projects/Kyronus_1.webp",
+        "projects/Kyronus_2.webp",
+        "projects/Kyronus_3.webp",
+        "projects/Kyronus_4.webp"
       ]
     },
     "link": ""
@@ -44,10 +44,10 @@
     "content": {
       "description": "<p>In this project, acted as a project leader, I lead the 6-person team to develop an online judge platform to evaluate 300+ students&#39; performance in Program Design (I) course 2020. The project mainly includes platform construction and evaluation security. For the platform construction, we adopted Vue.js as a frontend framework to build our website. Furthermore, we applied a state management pattern using Vuex, a centralized store for all the components in an application, which is with rules ensuring that the state can only be mutated in a predictable fashion. Finally, we developed a content management system (CMS) with CRUD Web APIs for coding problem management. As for evaluation security, we sandboxed the process with the Linux system call filtering, namespace isolation, and discretionary access control to prevent users from escalating their privilege and accessing unauthorized resources. We also restricted the memory usage for each evaluation process and scaled the number of the service when under high traffic.</p>",
       "images": [
-        "projects/OJ_1.png",
-        "projects/OJ_2.png",
-        "projects/OJ_3.png",
-        "projects/OJ_4.png"
+        "projects/OJ_1.webp",
+        "projects/OJ_2.webp",
+        "projects/OJ_3.webp",
+        "projects/OJ_4.webp"
       ]
     },
     "link": ""
@@ -60,34 +60,37 @@
     "status": "",
     "score": "",
     "content": {
-      "description": "description here",
-      "images": ["projects/HackMDir_1.png"]
+      "description": "<p>Acted as project leader and front-end developer, our team designed a chrome extension with DOM injection and cookie/header exploitation to help HackMD regular users manage their notes with directory categorization and bulk operations, earning an internship offer from HackMD CTO. In this project, I committed to a clear data flow in the state management and rendering performance for a better user experience. Specifically, I introduced Redux to acquire a tangible and predictable state representation for comprehensive information flow. As for the performance of the component rendering, I applied infinite scroll on the list view component, which is dedicated to reducing the number of unnecessary component renderings. Also,  I alternated some crucial components to a pure component in order to deter from repeat rendering same components without any state difference.</p>",
+      "images": ["projects/HackMDir_1.webp"]
     },
     "link": ""
   },
   {
     "title": "ATG.io -- A network I/O game with Q-learning",
-    "tags": [],
+    "tags": ["PyTorch", "Vue.js", "GIN"],
     "by": "Independent Study",
     "type": "Machine Learning",
     "status": "",
     "score": "",
     "content": {
-      "description": "description here",
-      "images": []
+      "description": "<p>The project started from the idea to build a web application with deep learning, helping some programming novices to develop their programming skill in a fun way. Practically, the user interacts with my pre-trained bot agent to play an I/O game called ATG.io. I trained the bot agent via both Deep Q-network in the reinforcement learning paradigm, obtaining the optimal Q-value function (continuous function) to retrieve the action of the bot by providing a motion vector in sixteen equal parts in bearing. I received 212% less negative feedback from the environment than the previous one and the variance of cumulative reward decreased from 153 to 21. Also, I developed an end-to-end web-based platform, allowing my bot real-time training with users' C++ code that controls their agents to compete with my bot for continuous improvement on the bot's strategy. Setting up pub-sub communicate channel between worker threads, the server owns 100 worker threads to host the competition with users at once and keeps doing health checks to make sure the server is workable.</p>",
+      "images": ["projects/ATG.io_1.webp"]
     },
     "link": ""
   },
   {
-    "title": "NCKU Bike Festival 2019 Official Website",
-    "tags": [],
+    "title": "2019 NCKU Bike Festival Official Website",
+    "tags": ["Vue.js", "Firebase", "Google Analytics"],
     "by": "NCKU Bike Festival",
     "type": "Software Engineering",
     "status": "",
     "score": "",
     "content": {
-      "description": "description here",
-      "images": []
+      "description": "<p>Served as the chief of the IT department at the 2019 National Cheng Kung University Bike Festival (The largest college fair in southern Taiwan), I led a 3-person team to promote the college fair by developing an official website with a content management system recapping the latest educational information, attained 48,043 pageviews and 24,244 visitors for website cumulatively. In this project, we developed the website in pure Pug/SASS without a UI library. Instead, we used SVG files for major UI elements to take the advantage of its resolution-independent, small-size, and high-performance feature and performing animations. In addition, we implemented responsive web UI adopting the Responsive Web Design approach to enrich mobile and desktop browsing experience. As for the content management system, we integrated Firebase into the project, which provides the cloud NoSQL database for us to store and retrieve the latest educational information. </p>",
+      "images": [
+        "projects/nckubikefestival_1.webp",
+        "projects/nckubikefestival_2.webp"
+      ]
     },
     "link": ""
   },

@@ -8,7 +8,7 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
       xl="5")
       v-container.fill-height.secondary(:class="{ 'rounded-t-lg': isMobile, 'rounded-l-xl': !isMobile }")
         v-row.custom-section-figure
-          v-img.custom-figure(:src="require('@/assets/figure.png')")
+          v-img.custom-figure(:src="require('@/assets/figure.webp')")
     v-col(cols="12"
       md="7"
       lg="7"
@@ -70,7 +70,7 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
                         @click="isDisplayTranscript.splice(0, 1, false)")
                         v-icon(color="white") mdi-chevron-left
                       v-list-item-content.pr-2
-                        label.font-weight-bold.text-body-1.text-right.white--text(style="line-height: 100%;") GPA: 3.98/4.30
+                        label.font-weight-bold.text-body-1.text-right.white--text(style="line-height: 100%;") GPA: 3.86/4.00
                         label.text-caption.text-right.white--text(style="line-height: 100%;") Credit: 151/151
                       v-btn.mr-2(icon)
                         v-icon(color="white"
@@ -185,7 +185,7 @@ export default {
     width: 195px;
     height: 262px;
 
-    /deep/ & > .v-image__image {
+    ::v-deep & > .v-image__image {
       background-position: center top !important;
     }
   }
