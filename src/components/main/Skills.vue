@@ -20,12 +20,14 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
           continuous
           hide-delimiter-background
           class="custom-carousel"
+          :mouseDrag="false"
+          :touchDrag="false"
           :height="isMobile ? '60vw' : '530px'")
           v-carousel-item(v-for="(type, index) of Object.keys(skillData)"
             :key="`carousel-skill-${type}-${index}`")
             v-sheet.d-flex.align-center.justify-center(color="transparent"
               flat
-              height="90%")
+              height="80%")
               div.custom-skill-preview(:style="{ 'background-image': `url('${require(`@/assets/images/${type.replace(' ', '').toLowerCase()}.svg`)}')` }")
     v-col.pt-0.pb-0(xs="12"
       sm="7"
@@ -43,7 +45,8 @@ v-card.mt-10(:class="{ 'rounded-lg': isMobile, 'rounded-xl': !isMobile }")
         div(v-scrollbar="{ damping: 0.2 }"
           style="overflow-y: auto;"
           :style="{ 'height': isMobile ? 'auto' : '530px' }")
-          v-tabs-items.pa-1(v-model="currentSkillIndex")
+          v-tabs-items.pa-1(v-model="currentSkillIndex"
+            touchless)
             v-tab-item(v-for="(type, tidx) of Object.keys(skillData)"
               :key="`skill-tab-${type}-${tidx}`")
               v-container.d-flex.justify-end(v-if="!isMobile")
@@ -143,6 +146,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: normal hue;
+  pointer-events: none;
   // &::after {
   //   position: absolute;
   //   top: 0;
@@ -158,7 +162,7 @@ export default {
 
 @media only screen and (min-width: 601px) {
   ::v-deep .custom-carousel .v-carousel__controls__item {
-    padding-bottom: 80px !important;
+    margin-bottom: 80px !important;
   }
 }
 

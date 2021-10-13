@@ -32,6 +32,7 @@ v-card(:class="{ 'rounded-lg': isMobile, 'mt-16': !isMobile, 'rounded-xl': !isMo
           v-tab.pa-0.text-body-2.font-weight-medium Focus Area
           v-tab.pa-0.text-body-2.font-weight-medium Education
         v-tabs-items(v-model="currentTab"
+          touchless
           style="max-width: 478px !important;"
           :style="{ 'min-height': isMobile ? '180px' : '224px'}")
           v-tab-item

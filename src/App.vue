@@ -82,10 +82,11 @@ v-app
   //-       v-list-item-content.font-weight-medium.text-center
   //-         span Contact
   v-main
-    div(style="max-height: 100vh;"
-      v-scrollbar="{ damping: 0.2 }"
-      ref="scrollbar")
-      vue-page-transition(name="overlay-left-full")
+    vue-page-transition(name="overlay-left-full")
+
+      div(style="max-height: 100vh;"
+        v-scrollbar
+        ref="scrollbar")
         router-view(
           style="transition: .2s transform ease-in-out;"
           :class="{ 'custom-transition-drawer': isMobile && isDisplayDrawer, 'pt-8': isMobile }")
@@ -94,71 +95,69 @@ v-app
 
 <script>
 export default {
-  name: 'App',
-  components: {
-  },
-  data: function () {
+  name: "App",
+  components: {},
+  data: function() {
     return {
       isDisplayDrawer: false,
-      diffHeight: 0
-    }
+      diffHeight: 0,
+    };
   },
   computed: {
-    currentRouteIndex: function () {
-      switch(this.$route.path) {
-        case '/':
-          return 0
-        case '/experiences':
-          return 1
-        case '/projects':
-          return 2
-        case '/moocs':
-          return 3
-        case '/contact':
-          return 4
+    currentRouteIndex: function() {
+      switch (this.$route.path) {
+        case "/":
+          return 0;
+        case "/experiences":
+          return 1;
+        case "/projects":
+          return 2;
+        case "/moocs":
+          return 3;
+        case "/contact":
+          return 4;
         default:
-          return 0
+          return 0;
       }
     },
-    isScroll: function () {
-      return this.diffHeight > 0
-    }
+    isScroll: function() {
+      return this.diffHeight > 0;
+    },
   },
   watch: {
-    $route: function () {
+    $route: function() {
       // Scroll to top when route changes
       setTimeout(() => {
-        this.$refs.scrollbar.$scrollbar.scrollTop = 0
-      }, 300)
-    }
+        this.$refs.scrollbar.$scrollbar.scrollTop = 0;
+      }, 300);
+    },
   },
-  mounted: function () {
-    this.$refs.scrollbar.addEventListener('scroll', this.scrollYEvent)
+  mounted: function() {
+    this.$refs.scrollbar.addEventListener("scroll", this.scrollYEvent);
   },
   methods: {
-    scrollYEvent: function () {
-      this.diffHeight = this.$refs.scrollbar.$scrollbar.scrollTop
-    }
+    scrollYEvent: function() {
+      this.diffHeight = this.$refs.scrollbar.$scrollbar.scrollTop;
+    },
   },
-  destroyed: function () {
-    this.$refs.scrollbar.removeEventListener('scroll', this.scrollYEvent)
-  }
-}
+  destroyed: function() {
+    this.$refs.scrollbar.removeEventListener("scroll", this.scrollYEvent);
+  },
+};
 </script>
 
 <style lang="scss">
-
 html {
   overflow-y: hidden !important;
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   max-width: 100vw;
-  max-height: 100vh;
-  overflow: hidden;
+  // max-height: 100vh;
+  // overflow: hidden;
 }
 
 #app {
@@ -167,8 +166,8 @@ body {
   color: #2c3e50;
   margin-top: 60px;
   max-width: 100vw;
-  max-height: 100vh;
-  overflow: hidden;
+  // max-height: 100vh;
+  // overflow: hidden;
   margin: 0;
   padding: 0;
 }
@@ -178,31 +177,39 @@ body {
 }
 
 .custom-list-item-active-menu {
-  background-color: #2176FF;
+  background-color: #2176ff;
   color: white;
-  transition: .2s background-color ease-in-out,
-    .2s color ease-in-out;
+  transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
 }
-
 
 .page-background-default {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  background: linear-gradient(90deg, #2176FF 0%, #2176FF 45%, #E5E5E5 45%, #E5E5E5 100%);
+  background: linear-gradient(
+    90deg,
+    #2176ff 0%,
+    #2176ff 45%,
+    #e5e5e5 45%,
+    #e5e5e5 100%
+  );
 }
-
 
 @media (min-width: 960px) {
   .container {
     max-width: 1280px !important;
   }
   .page-background-default {
-    background: linear-gradient(90deg, #2176FF 0%, #2176FF 33%, rgba(102, 102, 102, 0.06) 33%, rgba(102, 102, 102, 0.06) 100%) !important;
+    background: linear-gradient(
+      90deg,
+      #2176ff 0%,
+      #2176ff 33%,
+      rgba(102, 102, 102, 0.06) 33%,
+      rgba(102, 102, 102, 0.06) 100%
+    ) !important;
   }
 }
-
 
 .VueCarousel-dot-container {
   margin-top: 0 !important;
@@ -231,8 +238,11 @@ body {
   z-index: 9998;
 }
 
-.overlay-top, .overlay-bottom, .overlay-left, .overlay-right {
-  background: url("./assets//logo.svg"), #2176FF !important;
+.overlay-top,
+.overlay-bottom,
+.overlay-left,
+.overlay-right {
+  background: url("./assets//logo.svg"), #2176ff !important;
   background-position: 50% 50% !important;
   background-size: 18vh, cover !important;
   background-repeat: no-repeat !important;
@@ -245,9 +255,7 @@ body {
   transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
 }
 
-
 .v-item-group .v-slide-group__content {
   width: 100% !important;
 }
-
 </style>
